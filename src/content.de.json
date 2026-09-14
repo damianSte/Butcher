@@ -1,0 +1,424 @@
+{
+  "meta": {
+    "skipLinkLabel": "Zum Inhalt springen"
+  },
+  "brand": {
+    "name": "BUTCHER",
+    "tagline": "Restaurant · Gegr. 2020",
+    "logoMarkAlt": "Butcher — Stier-Markenzeichen",
+    "fullLogoAlt": "Butcher Restaurant — Gegr. 2020",
+    "homeAriaLabel": "Butcher Restaurant — Startseite"
+  },
+  "nav": {
+    "links": [
+      {
+        "label": "Geschichte",
+        "id": "unsere-geschichte"
+      },
+      {
+        "label": "Menu",
+        "id": "menu"
+      },
+      {
+        "label": "Grill",
+        "id": "feuer"
+      }
+    ],
+    "reservationCta": "Reservierung",
+    "mobileMenuCta": "Tisch reservieren",
+    "openMenuLabel": "Menü öffnen",
+    "closeMenuLabel": "Menü schließen"
+  },
+  "brandValues": [
+    "Dry Aged bis zu 28 Tage",
+    "Vulkan-Grill",
+    "Ausgewählte Rinder",
+    "Świnoujście · Gegr. 2020"
+  ],
+  "hero": {
+    "eyebrow": "Steakhouse · Świnoujście",
+    "kicker": "Dry Aged · Volcanic Grill · Gegr. 2020",
+    "title": "BUTCHER",
+    "subtitle": "Steaks. Rindfleisch. Guten Abend.",
+    "subtitleEmphasis": "So haben wir es am liebsten.",
+    "description": "Im Butcher dreht sich alles um das Fleisch. Wir wählen beste Rinderzuschnitte aus, reifen sie bis zu 28 Tage nach der Dry-Aging-Methode und bereiten sie auf dem Vulkangrill zu. Dazu einfache Küche, guter Wein und eine entspannte Atmosphäre.",
+    "ctaPrimary": "Tisch reservieren",
+    "ctaSecondary": "Menü ansehen",
+    "scrollCta": "Butcher entdecken",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1544025162-d76694265947?w=1800&h=1800&fit=crop&auto=format&q=90",
+      "alt": "Im Restaurant Butcher zubereitetes Steak"
+    },
+    "imageCaptionEyebrow": "Butcher Selection",
+    "imageCaption": "Von uns ausgewähltes Rindfleisch."
+  },
+  "story": {
+    "eyebrow": "Über uns",
+    "title": "Gutes Fleisch braucht keine",
+    "titleEmphasis": "Eile.",
+    "lead": "Von Anfang an wollten wir einen Ort für Menschen schaffen, die einfach gutes Fleisch schätzen. Ohne unnötige Komplikationen – es zählen die Qualität des Rindfleischs, die richtige Zubereitung und der Geschmack.",
+    "paragraphs": [
+      "Ausgewählte Zuschnitte reifen bei uns bis zu 28 Tage im Dry-Aging-Verfahren. Während dieser Zeit entwickelt das Fleisch einen tieferen Geschmack, die richtige Zartheit und den Charakter, den wir von einem großartigen Steak erwarten.",
+      "Wir bereiten unsere Steaks auf einem Vulkangrill zu, dessen hohe Hitze dem Fleisch außen eine kräftige Kruste verleiht und es innen saftig hält. Jedes Stück wird nach Ihrem gewünschten Garzustand gegrillt und vor dem Servieren kurz ruhen gelassen."
+    ],
+    "image": {
+      "src": "/images/gallery-1.jpg",
+      "alt": "Interieur des Restaurants Butcher"
+    },
+    "imageBadge": {
+      "title": "Seit 2020 in Świnoujście.",
+      "subtitle": "Rindfleisch · Dry Aging · Grill"
+    },
+    "stats": [
+      {
+        "value": "2020",
+        "label": "Eröffnungsjahr"
+      },
+      {
+        "value": "1500+",
+        "label": "Bewertungen"
+      },
+      {
+        "value": "4.5",
+        "label": "Google-Bewertung"
+      }
+    ]
+  },
+  "quoteSection": {
+    "image": {
+      "src": "/images/gallery-9.jpg",
+      "alt": "Reifendes Rindfleisch"
+    },
+    "imageCaption": "Dry Aging · bis zu 28 Tage",
+    "logoAlt": "Butcher",
+    "quote": "„Ein gutes Steak beginnt mit gutem Fleisch.“",
+    "quoteAttribution": "Butcher · Świnoujście"
+  },
+  "menu": {
+    "eyebrow": "Unsere Speisekarte",
+    "title": "Wonach steht Ihnen heute der Sinn?",
+    "description": "Steaks sind das Herzstück unserer Küche, aber das Butcher bietet mehr als nur Rindfleisch. Auf der Karte finden Sie außerdem Fisch, Pasta, Burger, klassische Gerichte und einige Köstlichkeiten zum Teilen am Tisch.",
+    "downloadCta": "Komplettes Menü herunterladen",
+    "currency": "PLN",
+    "categories": [
+      {
+        "category": "Vorspeisen",
+        "items": [
+          {
+            "name": "Rinderfilet-Tartar",
+            "description": "Filet (160 g), Eigelb, Pickles, Anchovis, Dijon-Senf, eingelegte Pilze, Liebstöckelmayonnaise, Brot",
+            "price": "60"
+          },
+          {
+            "name": "Butcher Wings",
+            "description": "Hähnchenfleisch, Louisiana-Tabasco-Sauce, Honig, Sojasauce, Sesam, Schnittlauch",
+            "price": "49"
+          },
+          {
+            "name": "Rinderfilet-Carpaccio",
+            "description": "Rinderfilet (80 g), Olivenöl, Kapern, Rucola, Kirschtomaten, Grana Padano, Brot",
+            "price": "56"
+          },
+          {
+            "name": "Hähnchen-Caesar-Salat",
+            "description": "Hähnchen (100 g), Kapern, Kirschtomaten, Ei, Speck, Grana Padano, Caesar-Dressing, Römersalat, Croutions",
+            "price": "56"
+          },
+          {
+            "name": "Antipasti Misto",
+            "description": "Auswahl an italienischem Käse und Aufschnitt",
+            "price": "119"
+          },
+          {
+            "name": "Thailändische Suppe",
+            "description": "Fischmix, Meeresfrüchtemix, Reis, Kokosmilch, Koriander, Limette, Gewürze, Tom-Yum-Nudeln",
+            "price": "42"
+          },
+          {
+            "name": "Brühe von gebratenem Fleisch",
+            "description": "Rindfleisch, Geflügelfleisch, Gemüse, Gewürze, Weizennudeln",
+            "price": "32"
+          }
+        ]
+      },
+      {
+        "category": "Hauptgerichte",
+        "items": [
+          {
+            "name": "Gebackene Goldbrasse mit Ofenkartoffeln und Coleslaw",
+            "description": "Ganze Dorade (300 g), Kartoffeln, Coleslaw",
+            "price": "89"
+          },
+          {
+            "name": "Fish and Chips mit Pommes frites und Coleslaw",
+            "description": "Fischfilet (200 g), Pommes frites, Tempura, Coleslaw",
+            "price": "66"
+          },
+          {
+            "name": "Traditionelles Schweineschnitzel mit Kartoffelpüree und Salat",
+            "description": "Schweinelachs (250 g), Kartoffeln, Butter, Öl, Weißkohl",
+            "price": "59"
+          },
+          {
+            "name": "Panko-Hähnchenfilet mit Püree und glasierten Karotten",
+            "description": "Hähnchenfilet (350 g), Kartoffelpüree, glasierte Karotten, Orange, Anis",
+            "price": "59"
+          },
+          {
+            "name": "Sous-vide Entenbrust mit Sanddornsauce, Kartoffelpüree und Honig-Rote-Bete",
+            "description": "Entenbrust (230 g), Kartoffelpüree, Butter, Sanddornsauce, Rote Beete, Honig",
+            "price": "79"
+          }
+        ]
+      },
+      {
+        "category": "Pasta",
+        "items": [
+          {
+            "name": "Tagliatelle in hausgemachtem Pesto mit Burrata",
+            "description": "Weizennudeln, Burrata, Kirschtomaten, hausgemachtes Pesto, Nüsse",
+            "price": "58"
+          },
+          {
+            "name": "Bolognese mit Grana Padano",
+            "description": "Weizennudeln, Tomaten, Rindfleisch, Knoblauch, Grana Padano",
+            "price": "52"
+          }
+        ]
+      },
+      {
+        "category": "Steaks",
+        "note": "Alle Steaks werden mit Ofenkartoffeln und Kräuterbutter serviert.",
+        "items": [
+          {
+            "name": "Tomahawk (ca. 1,2 kg)",
+            "description": "Preis pro 100 g",
+            "price": "39"
+          },
+          {
+            "name": "Porterhouse (ca. 0,9 kg)",
+            "description": "Preis pro 100 g",
+            "price": "38"
+          },
+          {
+            "name": "T-Bone (ca. 0,6 kg)",
+            "description": "Preis pro 100 g",
+            "price": "47"
+          },
+          {
+            "name": "Rinderfilet-Steak (200 g)",
+            "description": "",
+            "price": "149"
+          },
+          {
+            "name": "Ribeye (300 g)",
+            "description": "",
+            "price": "159"
+          },
+          {
+            "name": "New York Strip (300 g)",
+            "description": "",
+            "price": "159"
+          },
+          {
+            "name": "Chateaubriand für 2 (600 g)",
+            "description": "",
+            "price": "419"
+          },
+          {
+            "name": "Argentinisches Roastbeef (300 g)",
+            "description": "",
+            "price": "179"
+          }
+        ],
+        "addonsTitle": "Beilagen & Saucen",
+        "addons": [
+          {
+            "name": "Süßkartoffelpommes 200 g",
+            "price": "26"
+          },
+          {
+            "name": "Gegrilltes Gemüse",
+            "price": "26"
+          },
+          {
+            "name": "Coleslaw-Salat",
+            "price": "12"
+          },
+          {
+            "name": "Demiglace-Sauce",
+            "price": "12"
+          },
+          {
+            "name": "Pfferkornsauce",
+            "price": "12"
+          },
+          {
+            "name": "Chimichurri-Sauce",
+            "price": "12"
+          },
+          {
+            "name": "Aioli-Sauce",
+            "price": "8"
+          }
+        ]
+      },
+      {
+        "category": "Burger",
+        "items": [
+          {
+            "name": "N°1 Classic Burger",
+            "description": "Rindfleisch 180 g, Weizenbrötchen, Pickles, Salat, Tomate, Zwiebel, Aioli-Sauce",
+            "price": "54"
+          },
+          {
+            "name": "N°2 Royal Burger",
+            "description": "Rindfleisch 180 g, Weizenbrötchen, Speck, Garnelen 3 Stk., Mango-Chili-Chutney, Rucola",
+            "price": "69"
+          },
+          {
+            "name": "N°3 Cheeseburger",
+            "description": "Rindfleisch 180 g, Weizenbrötchen, Gorgonzola, Cheddarsauce, Salat, Zwiebelkonfitüre, Aioli-Sauce",
+            "price": "69"
+          },
+          {
+            "name": "N°4 Texas Burger",
+            "description": "Rindfleisch 180 g, Weizenbrötchen, Speck, Mimolette, Pickles, Salat, Tomate, Paprikasalsa, Zwiebel, Chipotle-Aioli",
+            "price": "59"
+          }
+        ],
+        "addonsTitle": "Beilagen",
+        "addons": [
+          {
+            "name": "Burger-Pommes mit Ketchup (150 g)",
+            "price": "16"
+          },
+          {
+            "name": "Süßkartoffelpommes (200 g)",
+            "price": "26"
+          }
+        ]
+      },
+      {
+        "category": "Desserts",
+        "items": [
+          {
+            "name": "Crème Brûlée",
+            "description": "Milch, Eier, Vanille",
+            "price": "32"
+          },
+          {
+            "name": "Schokoladenfondant mit Himbeereis",
+            "description": "Milch, Eier, Schokolade, Butter, Himbeereis",
+            "price": "38"
+          }
+        ]
+      }
+    ]
+  },
+  "fire": {
+    "eyebrow": "Vulkangrill",
+    "title": "Hier bereiten wir unsere Steaks zu.",
+    "description": "Das Herzstück unserer Küche ist der Vulkangrill. Auf ihm bereiten wir Tomahawks, Porterhouses, T-Bones, Ribeyes und andere Steaks von unserer Karte zu. Die hohe Temperatur sorgt für eine kräftige äußere Kruste, während im Inneren der gewünschte Garzustand und die Saftigkeit des Fleisches erhalten bleiben.",
+    "cta": "Steaks ansehen",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1731407321637-de010c69ceef?w=2200&h=1400&fit=crop&auto=format&q=88",
+      "alt": "Steaks auf dem Vulkangrill im Butcher zubereitet"
+    }
+  },
+  "reservation": {
+    "eyebrow": "Reservierungen",
+    "title": "Tisch reservieren.",
+    "description": "Wählen Sie Datum, Uhrzeit und Anzahl der Gäste. Wir kümmern uns um den Rest.",
+    "dateLabel": "Datum",
+    "timeLabel": "Uhrzeit",
+    "timePlaceholder": "Uhrzeit wählen",
+    "guestsLabel": "Gäste",
+    "submitCta": "Prüfen",
+    "groupNote": "Gruppen ab 9 Personen · rezerwacje@butcher-swinoujscie.pl",
+    "availableTimes": [
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00"
+    ],
+    "guestLabels": {
+      "one": "Gast",
+      "few": "Gäste",
+      "many": "Gäste"
+    },
+    "maxGuestsOption": 8
+  },
+  "footer": {
+    "logoAlt": "Butcher Restaurant — Gegr. 2020",
+    "description": "Steakhouse in Świnoujście. Ausgewähltes Rindfleisch, Dry Aging bis zu 28 Tage und auf dem Vulkangrill zubereitete Steaks.",
+    "contactTitle": "Kontakt",
+    "address": {
+      "display": "Aleja Baltic Park Molo 1/D2, 72-600, Swinoujście, Polska",
+      "href": "https://www.google.com/maps/place/Butcher+Restaurant+and+Steak+House/@53.9196671,14.2567282,17z/data=!3m1!4b1!4m6!3m5!1s0x47aa5fc285d15213:0xaa4e4dfaf9819f4a!8m2!3d53.9196671!4d14.2593031!16s%2Fg%2F11f67kmdyy?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
+    },
+    "phone": {
+      "display": "+48 517 431 823",
+      "href": "tel:+48517431823"
+    },
+    "email": {
+      "display": "rezerwacje@butcher-swinoujscie.pl",
+      "href": "mailto:rezerwacje@butcher-swinoujscie.pl"
+    },
+    "hoursTitle": "Öffnungszeiten",
+    "weekHours": [
+      {
+        "day": "Mo",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Di",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Mi",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Do",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Fr",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Sa",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "So",
+        "hours": "12:00–22:00"
+      }
+    ],
+    "copyright": "© 2026 Butcher Restaurant",
+    "socialLinks": [
+      {
+        "label": "Instagram",
+        "url": "#"
+      },
+      {
+        "label": "Facebook",
+        "url": "#"
+      },
+      {
+        "label": "Tripadvisor",
+        "url": "#"
+      }
+    ]
+  },
+  "images": {
+    "bullMark": "/images/Byk Czerwony.png",
+    "fullLogo": "/images/Group 6.png"
+  }
+}

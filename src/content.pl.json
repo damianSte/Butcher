@@ -1,0 +1,424 @@
+{
+  "meta": {
+    "skipLinkLabel": "Przejdź do treści"
+  },
+  "brand": {
+    "name": "BUTCHER",
+    "tagline": "Restaurant · Est. 2020",
+    "logoMarkAlt": "Butcher — znak firmowy byka",
+    "fullLogoAlt": "Butcher Restaurant — Zał. 2020",
+    "homeAriaLabel": "Butcher Restaurant — strona główna"
+  },
+  "nav": {
+    "links": [
+      {
+        "label": "Historia",
+        "id": "nasza-historia"
+      },
+      {
+        "label": "Menu",
+        "id": "menu"
+      },
+      {
+        "label": "Grill",
+        "id": "ogien"
+      }
+    ],
+    "reservationCta": "Rezerwacja",
+    "mobileMenuCta": "Zarezerwuj stolik",
+    "openMenuLabel": "Otwórz menu",
+    "closeMenuLabel": "Zamknij menu"
+  },
+  "brandValues": [
+    "Dry Aged do 28 dni",
+    "Grill wulkaniczny",
+    "Wyselekcjonowana wołowina",
+    "Świnoujście · Est. 2020"
+  ],
+  "hero": {
+    "eyebrow": "Steakhouse · Świnoujście",
+    "kicker": "Wołowina · Wino · Est. 2020",
+    "title": "BUTCHER",
+    "subtitle": "Steki. Wołowina. Dobry wieczór.",
+    "subtitleEmphasis": "Tak lubimy najbardziej.",
+    "description": "W Butcher najważniejsze jest mięso. Naszą wołowine sezonujemy je przez 28 dni i przygotowujemy ją na grillu. Pyszne jedzenie, dobre wino i swobodna atmosfera.",
+    "ctaPrimary": "Zarezerwuj stolik",
+    "ctaSecondary": "Zobacz menu",
+    "scrollCta": "Poznaj Butcher",
+    "image": {
+      "src": "/images/gallery-5.jpg",
+      "alt": "Stek przygotowany w restauracji Butcher"
+    },
+    "imageCaptionEyebrow": "Butcher Selection",
+    "imageCaption": "Wołowina wybrana przez nas."
+  },
+  "story": {
+    "eyebrow": "O nas",
+    "title": "Dobre mięso nie potrzebuje",
+    "titleEmphasis": "pośpiechu.",
+    "lead": "Od początku chcieliśmy stworzyć miejsce dla ludzi, którzy po prostu lubią dobre mięso. Dla nas liczy się jakość naszej wołowiny, odpowiednie przygotowanie i pyszny smak.",
+    "paragraphs": [
+      "Wołowine sezonujemy na sucho metodą w szafach Dry Ager przez minimum 28 dni. W tym czasie mięso nabiera smaku maślano-orzechowego, odpowiedniej kruchości i charakterze, którego szukamy w dobrym steku.",
+      "Steki przygotowujemy na grillu wulkanicznym, którego wysoka temperatura pozwala mocno przypiec mięso z zewnątrz i zachować jego soczystość. Każdy kawałek grillujemy zgodnie z wybranym stopniem wysmażenia."
+    ],
+    "image": {
+      "src": "/images/gallery-1.jpg",
+      "alt": "Wnętrze restauracji Butcher"
+    },
+    "imageBadge": {
+      "title": "Od 2020 roku w Świnoujściu.",
+      "subtitle": "Wołowina · Wino · Grill"
+    },
+    "stats": [
+      {
+        "value": "2020",
+        "label": "rok otwarcia"
+      },
+      {
+        "value": "1500+",
+        "label": "opinii"
+      },
+      {
+        "value": "4.5",
+        "label": "ocena Google"
+      }
+    ]
+  },
+  "quoteSection": {
+    "image": {
+      "src": "/images/gallery-9.jpg",
+      "alt": "Dojrzewająca wołowina"
+    },
+    "imageCaption": "Dry Aging · do 28 dni",
+    "logoAlt": "Butcher",
+    "quote": "„Dobry stek zaczyna się od dobrego mięsa.”",
+    "quoteAttribution": "Butcher · Świnoujście"
+  },
+  "menu": {
+    "eyebrow": "Nasze menu",
+    "title": "Na co masz dziś ochotę?",
+    "description": "Steki są sercem naszej kuchni, ale Butcher to nie tylko wołowina. W karcie znajdziesz również ryby, makarony, burgery oraz inne dania.",
+    "downloadCta": "Pobierz pełne menu",
+    "currency": "PLN",
+    "categories": [
+      {
+        "category": "Startery",
+        "items": [
+          {
+            "name": "Tatar z polędwicy wołowej",
+            "description": "Polędwica (160g), żółtko, pikle, anchois, musztarda Dijon, grzyby z octu, majonez lubczykowy, pieczywo",
+            "price": "60"
+          },
+          {
+            "name": "Skrzydełka Butcher",
+            "description": "Mięso z kurczaka, sos Luisiana-Tabasco, miód, sos sojowy, sezam, szczypiorek",
+            "price": "49"
+          },
+          {
+            "name": "Carpaccio z polędwicy wołowej",
+            "description": "Polędwica wołowa (80g), oliwa, kapary, rukola, pomidory koktajlowe, ser Grana Padano, pieczywo",
+            "price": "56"
+          },
+          {
+            "name": "Sałatka Cezar z Kurczakiem",
+            "description": "Kurczak (100g), kapary, pomidory cherry, jajko, boczek, ser Grana Padano, sos cezar, sałata rzymska, grzanki",
+            "price": "56"
+          },
+          {
+            "name": "Antipasti Misto",
+            "description": "Zestaw włoskich serów i wędlin",
+            "price": "119"
+          },
+          {
+            "name": "Zupa Tajska",
+            "description": "Mix ryb, mix owoców morza, ryż, mleko kokosowe, kolendra, limonka, przyprawy, makaron tom yum",
+            "price": "42"
+          },
+          {
+            "name": "Rosół z Pieczonych Mięs",
+            "description": "Mięso wołowe, mięso drobiowe, warzywa, przyprawy, makaron pszenny",
+            "price": "32"
+          }
+        ]
+      },
+      {
+        "category": "Dania Główne",
+        "items": [
+          {
+            "name": "Dorada z pieca z pieczonymi ziemniakami i colesławem",
+            "description": "Tusza dorady (300 g), ziemniaki, colesław",
+            "price": "89"
+          },
+          {
+            "name": "Fish and chips z frytkami i colesławem",
+            "description": "Filet z ryby (200 g), frytki, tempura, colesław",
+            "price": "66"
+          },
+          {
+            "name": "Tradycyjny kotlet schabowy z puree ziemniaczanym i surówką",
+            "description": "Schab wieprzowy (250 g), ziemniaki, masło, olej, kapusta biała",
+            "price": "59"
+          },
+          {
+            "name": "Filet z kurczaka w panko z puree i glazurowaną marchewką",
+            "description": "Filet z kurczaka (350 g), puree ziemniaczane, marchew glazurowana, pomarańcza, anyż",
+            "price": "59"
+          },
+          {
+            "name": "Pierś z kaczki sous vide z sosem z rokitnika, z puree ziemniaczanym oraz czerwonymi burakami w miodzie",
+            "description": "Pierś z kaczki (230 g), puree ziemniaczane, masło, sos z rokitnika, czerwony burak, miód",
+            "price": "79"
+          }
+        ]
+      },
+      {
+        "category": "Makarony",
+        "items": [
+          {
+            "name": "Tagliatelle w domowym pesto i burrata",
+            "description": "Makaron pszenny, burrata, pomidorki koktajlowe, domowe pesto, orzechy",
+            "price": "58"
+          },
+          {
+            "name": "Bolognese z serem Grana Padano",
+            "description": "Makaron pszenny, pomidory, mięso wołowe, czosnek, Grana Padano",
+            "price": "52"
+          }
+        ]
+      },
+      {
+        "category": "Steki",
+        "note": "Wszystkie steki są w zestawie z pieczonymi ziemniakami oraz masłem ziołowym.",
+        "items": [
+          {
+            "name": "Tomahawk (ok. 1,2 kg)",
+            "description": "Cena za 100 g",
+            "price": "39"
+          },
+          {
+            "name": "Porterhouse (ok. 0,9 kg)",
+            "description": "Cena za 100 g",
+            "price": "38"
+          },
+          {
+            "name": "T-Bone (ok. 0,6 kg)",
+            "description": "Cena za 100 g",
+            "price": "47"
+          },
+          {
+            "name": "Stek z polędwicy wołowej (200 g)",
+            "description": "",
+            "price": "149"
+          },
+          {
+            "name": "Ribeye (300 g)",
+            "description": "",
+            "price": "159"
+          },
+          {
+            "name": "New York Strip (300 g)",
+            "description": "",
+            "price": "159"
+          },
+          {
+            "name": "Chateaubriand for 2 (600 g)",
+            "description": "",
+            "price": "419"
+          },
+          {
+            "name": "Rostbef argentyński (300 g)",
+            "description": "",
+            "price": "179"
+          }
+        ],
+        "addonsTitle": "Dodatki",
+        "addons": [
+          {
+            "name": "Frytki z batata 200 g",
+            "price": "26"
+          },
+          {
+            "name": "Warzywa grillowane",
+            "price": "26"
+          },
+          {
+            "name": "Sałatka colesław",
+            "price": "12"
+          },
+          {
+            "name": "Sos demiglace",
+            "price": "12"
+          },
+          {
+            "name": "Sos pieprzowy",
+            "price": "12"
+          },
+          {
+            "name": "Sos chimichurri",
+            "price": "12"
+          },
+          {
+            "name": "Sos aioli",
+            "price": "8"
+          }
+        ]
+      },
+      {
+        "category": "Burgery",
+        "items": [
+          {
+            "name": "N°1 Classic burger",
+            "description": "Wołowina 180 g, bułka pszenna, pikle, sałata, pomidor, cebula, sos aioli",
+            "price": "54"
+          },
+          {
+            "name": "N°2 Royal burger",
+            "description": "Wołowina 180 g, bułka pszenna, boczek, krewetki 3 szt., chutney mango-chilli, rukola",
+            "price": "69"
+          },
+          {
+            "name": "N°3 Cheeseburger",
+            "description": "Wołowina 180 g, bułka pszenna, ser gorgonzola, sos cheddar, sałata, konfitura z cebuli, sos aioli",
+            "price": "69"
+          },
+          {
+            "name": "N°4 Texas burger",
+            "description": "Wołowina 180 g, bułka pszenna, boczek, ser mimolette, pikle, sałata, pomidor, salsa z papryki, cebula, aioli chipotle",
+            "price": "59"
+          }
+        ],
+        "addonsTitle": "Dodatki",
+        "addons": [
+          {
+            "name": "Frytki do burgera z ketchupem (150 g)",
+            "price": "16"
+          },
+          {
+            "name": "Frytki z batata (200 g)",
+            "price": "26"
+          }
+        ]
+      },
+      {
+        "category": "Desery",
+        "items": [
+          {
+            "name": "Creme Brûlée",
+            "description": "Mleko, jaja, wanilia",
+            "price": "32"
+          },
+          {
+            "name": "Fondant Czekoladowy z Lodami Malinowymi",
+            "description": "Mleko, jaja, czekolada, masło, lody malinowe",
+            "price": "38"
+          }
+        ]
+      }
+    ]
+  },
+  "fire": {
+    "eyebrow": "Grill wulkaniczny",
+    "title": "Tu przygotowujemy nasze steki.",
+    "description": "Sercem naszej kuchni jest grill wulkaniczny. To na nim przygotowujemy Tomahawki, Porterhouse’y, T-Bone’y, Ribeye i pozostałe steki z naszej karty. Wysoka temperatura pozwala uzyskać mocne przypieczenie z zewnątrz, zachowując wewnątrz wybrany stopień wysmażenia i soczystość mięsa.",
+    "cta": "Zobacz steki",
+    "image": {
+      "src": "/images/sdfghkjbiuobuvbl.png",
+      "alt": "Steki przygotowywane na grillu wulkanicznym w Butcher"
+    }
+  },
+  "reservation": {
+    "eyebrow": "Rezerwacje",
+    "title": "Zarezerwuj stolik.",
+    "description": "Wybierz datę, godzinę i liczbę gości. My zajmiemy się resztą.",
+    "dateLabel": "Data",
+    "timeLabel": "Godzina",
+    "timePlaceholder": "Wybierz godzinę",
+    "guestsLabel": "Goście",
+    "submitCta": "Sprawdź",
+    "groupNote": "Grupy powyżej 9 osób · rezerwacje@butcher-swinoujscie.pl",
+    "availableTimes": [
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00"
+    ],
+    "guestLabels": {
+      "one": "osoba",
+      "few": "osoby",
+      "many": "osób"
+    },
+    "maxGuestsOption": 8
+  },
+  "footer": {
+    "logoAlt": "Butcher Restaurant — Zał. 2020",
+    "description": "Steakhouse w Świnoujściu. Wyselekcjonowana wołowina, dry aging do 28 dni i steki przygotowywane na grillu wulkanicznym.",
+    "contactTitle": "Kontakt",
+    "address": {
+      "display": "Aleja Baltic Park Molo 1/D2, 72-600, Swinoujście, Polska",
+      "href": "https://www.google.com/maps/place/Butcher+Restaurant+and+Steak+House/@53.9196671,14.2567282,17z/data=!3m1!4b1!4m6!3m5!1s0x47aa5fc285d15213:0xaa4e4dfaf9819f4a!8m2!3d53.9196671!4d14.2593031!16s%2Fg%2F11f67kmdyy?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
+    },
+    "phone": {
+      "display": "+48 517 431 823",
+      "href": "tel:+48517431823"
+    },
+    "email": {
+      "display": "rezerwacje@butcher-swinoujscie.pl",
+      "href": "mailto:rezerwacje@butcher-swinoujscie.pl"
+    },
+    "hoursTitle": "Godziny",
+    "weekHours": [
+      {
+        "day": "Pn",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Wt",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Sr",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Cz",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Pt",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Sb",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Nd",
+        "hours": "12:00–22:00"
+      }
+    ],
+    "copyright": "© 2026 Butcher Restaurant",
+    "socialLinks": [
+      {
+        "label": "Instagram",
+        "url": "https://www.instagram.com/butcher.steakhouse/"
+      },
+      {
+        "label": "Facebook",
+        "url": "https://www.facebook.com/butcher.steakhouse.swinoujscie?locale=pl_PL"
+      },
+      {
+        "label": "Tripadvisor",
+        "url": "https://www.facebook.com/butcher.steakhouse.swinoujscie?locale=pl_PL"
+      }
+    ]
+  },
+  "images": {
+    "bullMark": "/images/Byk Czerwony.png",
+    "fullLogo": "/images/Group 6.png"
+  }
+}

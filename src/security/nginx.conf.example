@@ -1,0 +1,48 @@
+# Inside http {}. Replace domain, certificate paths, root and upstream.
+limit_req_zone $binary_remote_addr zone=contact:10m rate=5r/m;
+server {
+    listen 80;
+    server_name restaurant.example;
+    return 308 https://restaurant.example$request_uri;
+}
+server {
+    listen 443 ssl;
+    server_name restaurant.example;
+    ssl_certificate /etc/letsencrypt/live/restaurant.example/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/restaurant.example/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    server_tokens off;
+    root /var/www/butcher/dist;
+    include /etc/nginx/mime.types;
+    include /etc/nginx/snippets/butcher-headers.conf;
+    client_max_body_size 16k;
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/css application/javascript application/json image/svg+xml;
+    # Brotli is optional: enable only if ngx_brotli is installed and verified.
+    # brotli on;
+    # brotli_types text/css application/javascript application/json image/svg+xml;
+    location /assets/ {
+        try_files $uri =404;
+        include /etc/nginx/snippets/butcher-headers.conf;
+        add_header Cache-Control "public, max-age=31536000, immutable" always;
+    }
+    location /api/ {
+        limit_req zone=contact burst=5 nodelay;
+        limit_req_status 429;
+        include /etc/nginx/snippets/butcher-headers.conf;
+        add_header Cache-Control "no-store" always;
+        # Avoid personal data in default access logs. Use aggregate metrics.
+        access_log off;
+        proxy_pass http://127.0.0.1:3001;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+    location / {
+        try_files $uri $uri/ /index.html;
+        include /etc/nginx/snippets/butcher-headers.conf;
+        add_header Cache-Control "no-cache" always;
+    }
+}

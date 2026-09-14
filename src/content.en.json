@@ -1,0 +1,424 @@
+{
+  "meta": {
+    "skipLinkLabel": "Skip to content"
+  },
+  "brand": {
+    "name": "BUTCHER",
+    "tagline": "Restaurant · Est. 2020",
+    "logoMarkAlt": "Butcher — bull logo mark",
+    "fullLogoAlt": "Butcher Restaurant — Est. 2020",
+    "homeAriaLabel": "Butcher Restaurant — home page"
+  },
+  "nav": {
+    "links": [
+      {
+        "label": "Story",
+        "id": "our-story"
+      },
+      {
+        "label": "Menu",
+        "id": "menu"
+      },
+      {
+        "label": "Grill",
+        "id": "fire"
+      }
+    ],
+    "reservationCta": "Reservation",
+    "mobileMenuCta": "Book a table",
+    "openMenuLabel": "Open menu",
+    "closeMenuLabel": "Close menu"
+  },
+  "brandValues": [
+    "Dry aged up to 28 days",
+    "Volcanic grill",
+    "Selected beef",
+    "Świnoujście · Est. 2020"
+  ],
+  "hero": {
+    "eyebrow": "Steakhouse · Świnoujście",
+    "kicker": "Dry Aged · Volcanic Grill · Est. 2020",
+    "title": "BUTCHER",
+    "subtitle": "Steaks. Beef. Good evening.",
+    "subtitleEmphasis": "Just the way we like it.",
+    "description": "At Butcher, meat is what matters most. We select prime cuts of beef, dry-age them for up to 28 days, and prepare them on a volcanic grill. Combined with simple cooking, good wine, and a relaxed atmosphere.",
+    "ctaPrimary": "Book a table",
+    "ctaSecondary": "View menu",
+    "scrollCta": "Discover Butcher",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1544025162-d76694265947?w=1800&h=1800&fit=crop&auto=format&q=90",
+      "alt": "Steak prepared at Butcher restaurant"
+    },
+    "imageCaptionEyebrow": "Butcher Selection",
+    "imageCaption": "Beef chosen by us."
+  },
+  "story": {
+    "eyebrow": "About us",
+    "title": "Good meat needs no",
+    "titleEmphasis": "hurry.",
+    "lead": "From the very beginning, we wanted to create a place for people who simply appreciate good meat. Without unnecessary complications — what counts is the quality of the beef, proper preparation, and flavor.",
+    "paragraphs": [
+      "We dry-age selected cuts for up to 28 days. During this time, the meat develops a deeper flavor, the right tenderness, and the character we look for in a great steak.",
+      "We cook our steaks on a volcanic grill, whose high temperature sears the outside while keeping the meat juicy. Every piece is grilled to your preferred doneness and allowed to rest briefly before serving."
+    ],
+    "image": {
+      "src": "/images/gallery-1.jpg",
+      "alt": "Interior of Butcher restaurant"
+    },
+    "imageBadge": {
+      "title": "In Świnoujście since 2020.",
+      "subtitle": "Beef · Dry Aging · Grill"
+    },
+    "stats": [
+      {
+        "value": "2020",
+        "label": "year opened"
+      },
+      {
+        "value": "1500+",
+        "label": "reviews"
+      },
+      {
+        "value": "4.5",
+        "label": "Google rating"
+      }
+    ]
+  },
+  "quoteSection": {
+    "image": {
+      "src": "/images/gallery-9.jpg",
+      "alt": "Dry-aging beef"
+    },
+    "imageCaption": "Dry Aging · up to 28 days",
+    "logoAlt": "Butcher",
+    "quote": "“A good steak starts with good meat.”",
+    "quoteAttribution": "Butcher · Świnoujście"
+  },
+  "menu": {
+    "eyebrow": "Our menu",
+    "title": "What are you craving today?",
+    "description": "Steaks are the heart of our kitchen, but Butcher is about more than just beef. The menu also features fish, pasta, burgers, classic dishes, and a few things worth sharing at the table.",
+    "downloadCta": "Download full menu",
+    "currency": "PLN",
+    "categories": [
+      {
+        "category": "Starters",
+        "items": [
+          {
+            "name": "Beef Tenderloin Tartare",
+            "description": "Tenderloin (160g), egg yolk, pickles, anchovies, Dijon mustard, pickled mushrooms, lovage mayonnaise, artisan bread",
+            "price": "60"
+          },
+          {
+            "name": "Butcher Wings",
+            "description": "Chicken meat, Louisiana-Tabasco sauce, honey, soy sauce, sesame seeds, chives",
+            "price": "49"
+          },
+          {
+            "name": "Beef Tenderloin Carpaccio",
+            "description": "Beef tenderloin (80g), olive oil, capers, arugula, cherry tomatoes, Grana Padano cheese, artisan bread",
+            "price": "56"
+          },
+          {
+            "name": "Chicken Caesar Salad",
+            "description": "Chicken (100g), capers, cherry tomatoes, egg, bacon, Grana Padano cheese, Caesar dressing, romaine lettuce, croutons",
+            "price": "56"
+          },
+          {
+            "name": "Antipasti Misto",
+            "description": "Selection of Italian cheeses and cold cuts",
+            "price": "119"
+          },
+          {
+            "name": "Thai Soup",
+            "description": "Mixed fish, mixed seafood, rice, coconut milk, cilantro, lime, spices, tom yum noodles",
+            "price": "42"
+          },
+          {
+            "name": "Roasted Meat Broth",
+            "description": "Beef, poultry, vegetables, spices, wheat noodles",
+            "price": "32"
+          }
+        ]
+      },
+      {
+        "category": "Main Courses",
+        "items": [
+          {
+            "name": "Baked Gilt-head Bream with Roasted Potatoes and Coleslaw",
+            "description": "Whole bream (300g), potatoes, coleslaw",
+            "price": "89"
+          },
+          {
+            "name": "Fish and Chips with Fries and Coleslaw",
+            "description": "Fish fillet (200g), fries, tempura, coleslaw",
+            "price": "66"
+          },
+          {
+            "name": "Traditional Pork Cutlet with Mashed Potatoes and Salad",
+            "description": "Pork loin (250g), potatoes, butter, oil, white cabbage",
+            "price": "59"
+          },
+          {
+            "name": "Panko Chicken Fillet with Puree and Glazed Carrots",
+            "description": "Chicken fillet (350g), mashed potatoes, glazed carrots, orange, anise",
+            "price": "59"
+          },
+          {
+            "name": "Sous-Vide Duck Breast with Sea Buckthorn Sauce, Mashed Potatoes, and Honey-Glazed Red Beets",
+            "description": "Duck breast (230g), mashed potatoes, butter, sea buckthorn sauce, red beets, honey",
+            "price": "79"
+          }
+        ]
+      },
+      {
+        "category": "Pasta",
+        "items": [
+          {
+            "name": "Tagliatelle in Homemade Pesto with Burrata",
+            "description": "Wheat pasta, burrata, cherry tomatoes, homemade pesto, nuts",
+            "price": "58"
+          },
+          {
+            "name": "Bolognese with Grana Padano Cheese",
+            "description": "Wheat pasta, tomatoes, beef, garlic, Grana Padano",
+            "price": "52"
+          }
+        ]
+      },
+      {
+        "category": "Steaks",
+        "note": "All steaks are served with roasted potatoes and herb butter.",
+        "items": [
+          {
+            "name": "Tomahawk (approx. 1.2 kg)",
+            "description": "Price per 100g",
+            "price": "39"
+          },
+          {
+            "name": "Porterhouse (approx. 0.9 kg)",
+            "description": "Price per 100g",
+            "price": "38"
+          },
+          {
+            "name": "T-Bone (approx. 0.6 kg)",
+            "description": "Price per 100g",
+            "price": "47"
+          },
+          {
+            "name": "Beef Tenderloin Steak (200 g)",
+            "description": "",
+            "price": "149"
+          },
+          {
+            "name": "Ribeye (300 g)",
+            "description": "",
+            "price": "159"
+          },
+          {
+            "name": "New York Strip (300 g)",
+            "description": "",
+            "price": "159"
+          },
+          {
+            "name": "Chateaubriand for 2 (600 g)",
+            "description": "",
+            "price": "419"
+          },
+          {
+            "name": "Argentinian Sirloin (300 g)",
+            "description": "",
+            "price": "179"
+          }
+        ],
+        "addonsTitle": "Add-ons",
+        "addons": [
+          {
+            "name": "Sweet potato fries 200 g",
+            "price": "26"
+          },
+          {
+            "name": "Grilled vegetables",
+            "price": "26"
+          },
+          {
+            "name": "Coleslaw salad",
+            "price": "12"
+          },
+          {
+            "name": "Demiglace sauce",
+            "price": "12"
+          },
+          {
+            "name": "Peppercorn sauce",
+            "price": "12"
+          },
+          {
+            "name": "Chimichurri sauce",
+            "price": "12"
+          },
+          {
+            "name": "Aioli sauce",
+            "price": "8"
+          }
+        ]
+      },
+      {
+        "category": "Burgers",
+        "items": [
+          {
+            "name": "N°1 Classic Burger",
+            "description": "Beef 180g, wheat bun, pickles, lettuce, tomato, onion, aioli sauce",
+            "price": "54"
+          },
+          {
+            "name": "N°2 Royal Burger",
+            "description": "Beef 180g, wheat bun, bacon, shrimp 3 pcs., mango-chili chutney, arugula",
+            "price": "69"
+          },
+          {
+            "name": "N°3 Cheeseburger",
+            "description": "Beef 180g, wheat bun, gorgonzola cheese, cheddar sauce, lettuce, onion jam, aioli sauce",
+            "price": "69"
+          },
+          {
+            "name": "N°4 Texas Burger",
+            "description": "Beef 180g, wheat bun, bacon, mimolette cheese, pickles, lettuce, tomato, pepper salsa, onion, chipotle aioli",
+            "price": "59"
+          }
+        ],
+        "addonsTitle": "Add-ons",
+        "addons": [
+          {
+            "name": "Burger fries with ketchup (150 g)",
+            "price": "16"
+          },
+          {
+            "name": "Sweet potato fries (200 g)",
+            "price": "26"
+          }
+        ]
+      },
+      {
+        "category": "Desserts",
+        "items": [
+          {
+            "name": "Crème Brûlée",
+            "description": "Milk, eggs, vanilla",
+            "price": "32"
+          },
+          {
+            "name": "Chocolate Fondant with Raspberry Ice Cream",
+            "description": "Milk, eggs, chocolate, butter, raspberry ice cream",
+            "price": "38"
+          }
+        ]
+      }
+    ]
+  },
+  "fire": {
+    "eyebrow": "Volcanic Grill",
+    "title": "This is where we prepare our steaks.",
+    "description": "The heart of our kitchen is the volcanic grill. This is where we prepare our Tomahawks, Porterhouses, T-Bones, Ribeyes, and other steaks from our menu. High temperatures allow for a powerful exterior sear while preserving the juices and your preferred level of doneness inside.",
+    "cta": "View steaks",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1731407321637-de010c69ceef?w=2200&h=1400&fit=crop&auto=format&q=88",
+      "alt": "Steaks being prepared on a volcanic grill at Butcher"
+    }
+  },
+  "reservation": {
+    "eyebrow": "Reservations",
+    "title": "Book a table.",
+    "description": "Choose a date, time, and number of guests. We'll take care of the rest.",
+    "dateLabel": "Date",
+    "timeLabel": "Time",
+    "timePlaceholder": "Select time",
+    "guestsLabel": "Guests",
+    "submitCta": "Check",
+    "groupNote": "Groups over 9 people · rezerwacje@butcher-swinoujscie.pl",
+    "availableTimes": [
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00",
+      "12:00 - 22:00"
+    ],
+    "guestLabels": {
+      "one": "guest",
+      "few": "guests",
+      "many": "guests"
+    },
+    "maxGuestsOption": 8
+  },
+  "footer": {
+    "logoAlt": "Butcher Restaurant — Est. 2020",
+    "description": "Steakhouse in Świnoujście. Selected beef, dry-aged for up to 28 days, and steaks prepared on a volcanic grill.",
+    "contactTitle": "Contact",
+    "address": {
+      "display": "Aleja Baltic Park Molo 1/D2, 72-600, Swinoujście, Polska",
+      "href": "https://www.google.com/maps/place/Butcher+Restaurant+and+Steak+House/@53.9196671,14.2567282,17z/data=!3m1!4b1!4m6!3m5!1s0x47aa5fc285d15213:0xaa4e4dfaf9819f4a!8m2!3d53.9196671!4d14.2593031!16s%2Fg%2F11f67kmdyy?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
+    },
+    "phone": {
+      "display": "+48 517 431 823",
+      "href": "tel:+48517431823"
+    },
+    "email": {
+      "display": "rezerwacje@butcher-swinoujscie.pl",
+      "href": "mailto:rezerwacje@butcher-swinoujscie.pl"
+    },
+    "hoursTitle": "Hours",
+    "weekHours": [
+      {
+        "day": "Mon",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Tue",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Wed",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Thu",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Fri",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Sat",
+        "hours": "12:00–22:00"
+      },
+      {
+        "day": "Sun",
+        "hours": "12:00–22:00"
+      }
+    ],
+    "copyright": "© 2026 Butcher Restaurant",
+    "socialLinks": [
+      {
+        "label": "Instagram",
+        "url": "#"
+      },
+      {
+        "label": "Facebook",
+        "url": "#"
+      },
+      {
+        "label": "Tripadvisor",
+        "url": "#"
+      }
+    ]
+  },
+  "images": {
+    "bullMark": "/images/Byk Czerwony.png",
+    "fullLogo": "/images/Group 6.png"
+  }
+}
