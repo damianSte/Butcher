@@ -829,8 +829,8 @@ export default function App() {
                 className="border border-[#CFC2B4] bg-[#FFFDFC] p-5 sm:p-7"
                 data-reveal="delay-1"
               >
-                <div className="grid gap-4 md:grid-cols-[1fr_1fr_1fr_auto] md:items-end">
-                  <label className="block">
+                <div className="grid w-full min-w-0 gap-4 md:grid-cols-[1fr_1fr_1fr_auto] md:items-end">
+                  <label className="block w-full min-w-0">
                     <span className="mb-2 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.17em] text-[#6F6259]">
                       <CalendarDays size={13} />
                       {content.reservation.dateLabel}
@@ -840,11 +840,11 @@ export default function App() {
                       type="date"
                       value={data}
                       onChange={(event) => setData(event.target.value)}
-                      className="h-[52px] w-full border border-[#D8CDBF] bg-white px-4 text-sm text-[#251B17] outline-none transition-colors focus:border-[#7B2026]"
+                      className="block h-[52px] w-full min-w-0 max-w-full border border-[#D8CDBF] bg-white px-4 text-sm text-[#251B17] outline-none transition-colors focus:border-[#7B2026]"
                     />
                   </label>
 
-                  <label className="block">
+                  <label className="block w-full min-w-0">
                     <span className="mb-2 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.17em] text-[#6F6259]">
                       <Clock3 size={13} />
                       {content.reservation.timeLabel}
@@ -853,7 +853,7 @@ export default function App() {
                     <select
                       value={godzina}
                       onChange={(event) => setGodzina(event.target.value)}
-                      className="h-[52px] w-full cursor-pointer appearance-none border border-[#D8CDBF] bg-white px-4 text-sm text-[#251B17] outline-none transition-colors focus:border-[#7B2026]"
+                      className="block h-[52px] w-full min-w-0 max-w-full cursor-pointer appearance-none border border-[#D8CDBF] bg-white px-4 text-sm text-[#251B17] outline-none transition-colors focus:border-[#7B2026]"
                     >
                       <option value="">
                         {content.reservation.timePlaceholder}
@@ -867,7 +867,7 @@ export default function App() {
                     </select>
                   </label>
 
-                  <label className="block">
+                  <label className="block w-full min-w-0">
                     <span className="mb-2 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.17em] text-[#6F6259]">
                       <UsersRound size={13} />
                       {content.reservation.guestsLabel}
@@ -876,7 +876,7 @@ export default function App() {
                     <select
                       value={goscie}
                       onChange={(event) => setGoscie(event.target.value)}
-                      className="h-[52px] w-full cursor-pointer appearance-none border border-[#D8CDBF] bg-white px-4 text-sm text-[#251B17] outline-none transition-colors focus:border-[#7B2026]"
+                      className="block h-[52px] w-full min-w-0 max-w-full cursor-pointer appearance-none border border-[#D8CDBF] bg-white px-4 text-sm text-[#251B17] outline-none transition-colors focus:border-[#7B2026]"
                     >
                       {Array.from(
                         {
@@ -891,7 +891,7 @@ export default function App() {
                     </select>
                   </label>
 
-                  <button className="flex h-[52px] items-center justify-center gap-3 bg-[#7B2026] px-7 text-[10px] font-semibold uppercase tracking-[0.17em] text-white transition-colors hover:bg-[#5F171C]">
+                  <button className="flex h-[52px] w-full min-w-0 items-center justify-center gap-3 bg-[#7B2026] px-7 text-[10px] font-semibold uppercase tracking-[0.17em] text-white transition-colors hover:bg-[#5F171C] md:w-auto">
                     {content.reservation.submitCta}
                     <ArrowUpRight size={14} />
                   </button>
