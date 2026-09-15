@@ -1025,7 +1025,7 @@ export default function App() {
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-x-5 gap-y-3 text-[#8A7A6E] sm:justify-end">
+              <div className="flex flex-wrap gap-x-6 gap-y-3 text-[#8A7A6E] sm:justify-end">
                 <a
                   href="/polityka-prywatnosci"
                   className="transition-colors hover:text-[#7B2026]"
