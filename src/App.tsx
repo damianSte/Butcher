@@ -840,7 +840,7 @@ export default function App() {
                       type="date"
                       value={data}
                       onChange={(event) => setData(event.target.value)}
-                      className="block h-[52px] w-full min-w-0 max-w-full border border-[#D8CDBF] bg-white px-4 text-sm text-[#251B17] outline-none transition-colors focus:border-[#7B2026]"
+                      className="block h-[52px] w-full min-w-0 max-w-full appearance-none rounded-none border border-[#D8CDBF] bg-white px-4 text-[16px] leading-none text-[#251B17] outline-none transition-colors [box-sizing:border-box] [&::-webkit-date-and-time-value]:m-0 [&::-webkit-date-and-time-value]:min-w-0 [&::-webkit-date-and-time-value]:text-left focus:border-[#7B2026] sm:text-sm"
                     />
                   </label>
 
@@ -853,7 +853,7 @@ export default function App() {
                     <select
                       value={godzina}
                       onChange={(event) => setGodzina(event.target.value)}
-                      className="block h-[52px] w-full min-w-0 max-w-full cursor-pointer appearance-none border border-[#D8CDBF] bg-white px-4 text-sm text-[#251B17] outline-none transition-colors focus:border-[#7B2026]"
+                      className="block h-[52px] w-full min-w-0 max-w-full cursor-pointer appearance-none rounded-none border border-[#D8CDBF] bg-white px-4 text-[16px] leading-none text-[#251B17] outline-none transition-colors [box-sizing:border-box] focus:border-[#7B2026] sm:text-sm"
                     >
                       <option value="">
                         {content.reservation.timePlaceholder}
@@ -876,7 +876,7 @@ export default function App() {
                     <select
                       value={goscie}
                       onChange={(event) => setGoscie(event.target.value)}
-                      className="block h-[52px] w-full min-w-0 max-w-full cursor-pointer appearance-none border border-[#D8CDBF] bg-white px-4 text-sm text-[#251B17] outline-none transition-colors focus:border-[#7B2026]"
+                      className="block h-[52px] w-full min-w-0 max-w-full cursor-pointer appearance-none rounded-none border border-[#D8CDBF] bg-white px-4 text-[16px] leading-none text-[#251B17] outline-none transition-colors [box-sizing:border-box] focus:border-[#7B2026] sm:text-sm"
                     >
                       {Array.from(
                         {
@@ -891,7 +891,7 @@ export default function App() {
                     </select>
                   </label>
 
-                  <button className="flex h-[52px] w-full min-w-0 items-center justify-center gap-3 bg-[#7B2026] px-7 text-[10px] font-semibold uppercase tracking-[0.17em] text-white transition-colors hover:bg-[#5F171C] md:w-auto">
+                  <button className="flex h-[52px] w-full min-w-0 appearance-none items-center justify-center gap-3 rounded-none bg-[#7B2026] px-7 text-[10px] font-semibold uppercase tracking-[0.17em] text-white transition-colors [box-sizing:border-box] hover:bg-[#5F171C] md:w-auto">
                     {content.reservation.submitCta}
                     <ArrowUpRight size={14} />
                   </button>
