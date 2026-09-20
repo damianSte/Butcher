@@ -335,7 +335,7 @@
     "timePlaceholder": "Select time",
     "guestsLabel": "Guests",
     "submitCta": "Check",
-    "groupNote": "Groups over 9 people · rezerwacje@butcher-swinoujscie.pl",
+    "groupNote": "",
     "availableTimes": [
       "12:00 - 22:00",
       "12:00 - 22:00",
@@ -367,8 +367,8 @@
       "href": "tel:+48517431823"
     },
     "email": {
-      "display": "rezerwacje@butcher-swinoujscie.pl",
-      "href": "mailto:rezerwacje@butcher-swinoujscie.pl"
+      "display": "butcher.swinoujscie@gmail.com",
+      "href": "mailto:butcher.swinoujscie@gmail.com"
     },
     "hoursTitle": "Hours",
     "weekHours": [

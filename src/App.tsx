@@ -486,10 +486,10 @@ export default function App() {
 
           {/* BRAND STRIP */}
           <div className="border-y border-[#D8CDBF] bg-[#EFE7DC]">
-            <div className="mx-auto flex h-[44px] max-w-[1320px] flex-wrap items-center justify-center gap-x-9 gap-y-1 px-5 sm:px-8 lg:px-12">
+            <div className="mx-auto flex min-h-[44px] max-w-[1320px] flex-wrap items-center justify-center gap-x-9 gap-y-2 px-5 py-2 sm:px-8 lg:px-12">
               {BRAND_VALUES.map((item, index) => (
                 <div key={item} className="flex items-center gap-9">
-                  <span className="text-[10px] font-medium uppercase tracking-[0.20em] text-[#5F5148]">
+                  <span className="whitespace-nowrap text-[10px] font-medium uppercase tracking-[0.20em] text-[#5F5148]">
                     {item}
                   </span>
 
