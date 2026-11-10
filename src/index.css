@@ -1,14 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;0,6..96,800;0,6..96,900;1,6..96,400;1,6..96,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@300;400&display=swap");
-
+/* Fonts are self-hosted (CSP: font-src 'self'; no IP leak to Google). */
+@import "@fontsource-variable/bodoni-moda/opsz.css";
+@import "@fontsource-variable/bodoni-moda/opsz-italic.css";
+@import "@fontsource-variable/plus-jakarta-sans/wght.css";
+@import "@fontsource/dm-mono/300.css";
+@import "@fontsource/dm-mono/400.css";
 @import "tailwindcss";
 @theme {
-  --font-serif: "Bodoni Moda", serif;
-  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Bodoni Moda Variable", "Bodoni Moda", serif;
+  --font-sans: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", sans-serif;
   --font-mono: "DM Mono", monospace;
 }
 
 .font-butcher {
-  font-family: "Bodoni Moda", serif;
+  font-family: "Bodoni Moda Variable", "Bodoni Moda", serif;
 }
 
 :root {

@@ -13,10 +13,12 @@ export function PrivacyControls() {
     initTracking();
     const sync = (event: StorageEvent) => { if (event.key === KEY || event.key === null) location.reload(); };
     const expire = () => { if (choice && !readChoice()) location.reload(); };
+    const open = () => { setVisible(true); window.setTimeout(() => panel.current?.focus(), 0); };
     window.addEventListener("storage", sync);
     window.addEventListener("focus", expire);
+    window.addEventListener("open-cookie-settings", open);
     const timer = window.setInterval(expire, 60_000);
-    return () => { window.removeEventListener("storage", sync); window.removeEventListener("focus", expire); clearInterval(timer); };
+    return () => { window.removeEventListener("storage", sync); window.removeEventListener("focus", expire); window.removeEventListener("open-cookie-settings", open); clearInterval(timer); };
   }, [choice]);
   function save(a: boolean, m: boolean) {
     if (!saveChoice(a, m)) setError("Nie udało się zapisać wyboru. Nie włączono dodatkowych narzędzi. Sprawdź ustawienia pamięci przeglądarki.");

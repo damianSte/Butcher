@@ -1,5 +1,6 @@
 import "./security/original.css";
 import { PrivacyControls } from "./security/PrivacyControls";
+import { trackingAvailable } from "./security/consent";
 import "./security/security.css";
 import { useEffect, useRef, useState } from "react";
 
@@ -17,12 +18,21 @@ import contentPL from "./content.pl.json";
 import contentEN from "./content.en.json";
 import contentDE from "./content.de.json";
 import { Gallery } from "./Gallery";
+import { LegalPage, type LegalKind } from "./LegalPage";
 
 type Language = "pl" | "en" | "de";
 const CONTENT = { pl: contentPL, en: contentEN, de: contentDE };
 
 const DISH_RESERVATION_URL =
   "https://reservation.dish.co/widget/hydra-98f71438-ceca-48a8-8e0e-b57b86c31ba1?lang=pl";
+
+type Page = "home" | "gallery" | LegalKind;
+
+const PAGE_PATHS: Record<Exclude<Page, "home">, string> = {
+  gallery: "/galeria",
+  privacy: "/polityka-prywatnosci",
+  cookies: "/polityka-cookies",
+};
 
 const DISH_RESERVATION_CLOSE_LABEL = {
   pl: "Zamknij okno rezerwacji",
@@ -44,12 +54,15 @@ function SectionEyebrow({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  const getPageFromPath = () =>
-    window.location.pathname.replace(/\/+$/, "") === "/galeria"
-      ? "gallery"
-      : "home";
+  const getPageFromPath = (): Page => {
+    const path = window.location.pathname.replace(/\/+$/, "");
+    const match = (Object.keys(PAGE_PATHS) as Array<keyof typeof PAGE_PATHS>).find(
+      (key) => PAGE_PATHS[key] === path,
+    );
+    return match ?? "home";
+  };
 
-  const [page, setPage] = useState<"home" | "gallery">(getPageFromPath);
+  const [page, setPage] = useState<Page>(getPageFromPath);
   const [language, setLanguage] = useState<Language>("pl");
   const content = CONTENT[language];
   const bullMark = content.images.bullMark;
@@ -136,7 +149,7 @@ export default function App() {
   }, [page]);
 
   const scrollTo = (id: string) => {
-    if (page === "gallery") {
+    if (page !== "home") {
       window.history.pushState({}, "", `/#${id}`);
       setPage("home");
       setMobileOpen(false);
@@ -184,6 +197,31 @@ export default function App() {
     setMobileOpen(false);
     window.scrollTo({ top: 0, behavior: "auto" });
   };
+
+  const openLegal = (kind: LegalKind) => {
+    if (page !== kind) {
+      window.history.pushState({}, "", PAGE_PATHS[kind]);
+      setPage(kind);
+    }
+
+    setMobileOpen(false);
+    window.scrollTo({ top: 0, behavior: "auto" });
+  };
+
+  const legalLinkClick =
+    (kind: LegalKind) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      )
+        return;
+      event.preventDefault();
+      openLegal(kind);
+    };
 
   const galleryLabel =
     language === "pl" ? "Galeria" : language === "en" ? "Gallery" : "Galerie";
@@ -421,6 +459,16 @@ export default function App() {
 
       {page === "gallery" ? (
         <Gallery language={language} />
+      ) : page === "privacy" || page === "cookies" ? (
+        <LegalPage
+          language={language}
+          kind={page}
+          contact={{
+            address: content.footer.address.display,
+            email: content.footer.email.display,
+          }}
+          onNavigate={openLegal}
+        />
       ) : (
         <main id="main" tabIndex={-1}>
           {/* HERO */}
@@ -983,6 +1031,7 @@ export default function App() {
               <div className="flex flex-wrap gap-x-6 gap-y-3 text-[#8A7A6E] sm:justify-end">
                 <a
                   href="/polityka-prywatnosci"
+                  onClick={legalLinkClick("privacy")}
                   className="transition-colors hover:text-[#7B2026]"
                 >
                   {legalLinks.privacy}
@@ -990,18 +1039,21 @@ export default function App() {
 
                 <a
                   href="/polityka-cookies"
+                  onClick={legalLinkClick("cookies")}
                   className="transition-colors hover:text-[#7B2026]"
                 >
                   {legalLinks.cookies}
                 </a>
 
-                <button
-                  type="button"
-                  onClick={openCookieSettings}
-                  className="text-left uppercase tracking-[0.15em] transition-colors hover:text-[#7B2026]"
-                >
-                  {legalLinks.settings}
-                </button>
+                {trackingAvailable && (
+                  <button
+                    type="button"
+                    onClick={openCookieSettings}
+                    className="text-left uppercase tracking-[0.15em] transition-colors hover:text-[#7B2026]"
+                  >
+                    {legalLinks.settings}
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -1032,6 +1084,8 @@ export default function App() {
           {reservationOpen && (
             <iframe
               src={DISH_RESERVATION_URL}
+              sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+              referrerPolicy="strict-origin-when-cross-origin"
               title={content.nav.mobileMenuCta}
               className="min-h-0 w-full flex-1 border-0"
             />

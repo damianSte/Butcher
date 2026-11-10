@@ -6,14 +6,25 @@ type Dependencies = {
   turnstileSecret: string;
   enqueue: (message: { email: string; message: string }) => Promise<void>;
 };
+// Intentional: reject control characters (except \t, \n, \r) in the message body.
+// oxlint-disable-next-line no-control-regex
+const CONTROL_CHARS = /[\u0000-\u0008\u000B\u000C\u000E-\u001F]/;
 export async function contact(request: Request, deps: Dependencies): Promise<Response> {
   const reply = (status: number, message: string) => Response.json({ message }, {
     status, headers: { "Cache-Control": "no-store" } });
   if (request.method !== "POST") return new Response(null, { status: 405, headers: { Allow: "POST" } });
   if (request.headers.get("origin") !== deps.origin) return reply(403, "Niedozwolone źródło.");
   if (request.headers.get("content-type")?.split(";")[0].trim() !== "application/json") return reply(415, "Wymagany JSON.");
+  // Defence in depth: the reverse proxy already caps the body at 16 KiB.
+  const MAX_BODY = 16 * 1024;
+  const declared = Number(request.headers.get("content-length"));
+  if (Number.isFinite(declared) && declared > MAX_BODY) return reply(413, "Zbyt duże żądanie.");
   let body: unknown;
-  try { body = await request.json(); } catch { return reply(400, "Nieprawidłowe dane."); }
+  try {
+    const raw = await request.text();
+    if (new TextEncoder().encode(raw).length > MAX_BODY) return reply(413, "Zbyt duże żądanie.");
+    body = JSON.parse(raw);
+  } catch { return reply(400, "Nieprawidłowe dane."); }
   if (!body || typeof body !== "object" || Array.isArray(body)) return reply(400, "Nieprawidłowe dane.");
   const b = body as Record<string, unknown>;
   if (Object.keys(b).some(k => !["email", "message", "token"].includes(k))) return reply(400, "Nieznane pole.");
@@ -22,7 +33,7 @@ export async function contact(request: Request, deps: Dependencies): Promise<Res
   const message = b.message.normalize("NFC").trim();
   // A pragmatic format check; do not reject names/punctuation in the message.
   if (email.length > 254 || /[\r\n]/.test(email) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
-      message.length < 10 || message.length > 4000 || /[\u0000-\u0008\u000B\u000C\u000E-\u001F]/.test(message) ||
+      message.length < 10 || message.length > 4000 || CONTROL_CHARS.test(message) ||
       b.token.length < 1 || b.token.length > 2048) return reply(400, "Sprawdź e-mail i treść (10–4000 znaków).");
   if (!deps.turnstileSecret) return reply(503, "Formularz chwilowo niedostępny.");
   try {

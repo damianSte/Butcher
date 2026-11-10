@@ -1,0 +1,713 @@
+diff --git a/index.html b/index.html
+index ff35b96..f4bf5fc 100644
+--- a/index.html
++++ b/index.html
+@@ -1,10 +1,11 @@
+ <!doctype html>
+-<html lang="en">
++<html lang="pl">
+   <head>
+     <meta charset="UTF-8" />
+     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-    <title>butcher</title>
++    <meta name="description" content="Butcher Restaurant — steakhouse w Świnoujściu. Wyselekcjonowana wołowina, dry aging i steki z grilla wulkanicznego." />
++    <title>Butcher Restaurant — Steakhouse Świnoujście</title>
+   </head>
+   <body>
+     <div id="root"></div>
+diff --git a/package.json b/package.json
+index 4e9b4de..5ee84f2 100644
+--- a/package.json
++++ b/package.json
+@@ -10,6 +10,9 @@
+     "preview": "vite preview"
+   },
+   "dependencies": {
++    "@fontsource-variable/bodoni-moda": "^5.3.0",
++    "@fontsource-variable/plus-jakarta-sans": "^5.3.0",
++    "@fontsource/dm-mono": "^5.3.0",
+     "@tailwindcss/vite": "^4.3.3",
+     "lucide-react": "^1.45.0",
+     "react": "^19.2.8",
+diff --git a/public/favicon.svg b/public/favicon.svg
+new file mode 100644
+index 0000000..db8dffd
+--- /dev/null
++++ b/public/favicon.svg
+@@ -0,0 +1 @@
++<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#7B2026"/><text x="32" y="45" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="700" fill="#F8F4ED">B</text></svg>
+diff --git a/src/App.tsx b/src/App.tsx
+index b3658f8..448c4bc 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -1,5 +1,6 @@
+ import "./security/original.css";
+ import { PrivacyControls } from "./security/PrivacyControls";
++import { trackingAvailable } from "./security/consent";
+ import "./security/security.css";
+ import { useEffect, useRef, useState } from "react";
+ 
+@@ -17,6 +18,7 @@ import contentPL from "./content.pl.json";
+ import contentEN from "./content.en.json";
+ import contentDE from "./content.de.json";
+ import { Gallery } from "./Gallery";
++import { LegalPage, type LegalKind } from "./LegalPage";
+ 
+ type Language = "pl" | "en" | "de";
+ const CONTENT = { pl: contentPL, en: contentEN, de: contentDE };
+@@ -24,6 +26,14 @@ const CONTENT = { pl: contentPL, en: contentEN, de: contentDE };
+ const DISH_RESERVATION_URL =
+   "https://reservation.dish.co/widget/hydra-98f71438-ceca-48a8-8e0e-b57b86c31ba1?lang=pl";
+ 
++type Page = "home" | "gallery" | LegalKind;
++
++const PAGE_PATHS: Record<Exclude<Page, "home">, string> = {
++  gallery: "/galeria",
++  privacy: "/polityka-prywatnosci",
++  cookies: "/polityka-cookies",
++};
++
+ const DISH_RESERVATION_CLOSE_LABEL = {
+   pl: "Zamknij okno rezerwacji",
+   en: "Close booking window",
+@@ -44,12 +54,15 @@ function SectionEyebrow({ children }: { children: React.ReactNode }) {
+ }
+ 
+ export default function App() {
+-  const getPageFromPath = () =>
+-    window.location.pathname.replace(/\/+$/, "") === "/galeria"
+-      ? "gallery"
+-      : "home";
++  const getPageFromPath = (): Page => {
++    const path = window.location.pathname.replace(/\/+$/, "");
++    const match = (Object.keys(PAGE_PATHS) as Array<keyof typeof PAGE_PATHS>).find(
++      (key) => PAGE_PATHS[key] === path,
++    );
++    return match ?? "home";
++  };
+ 
+-  const [page, setPage] = useState<"home" | "gallery">(getPageFromPath);
++  const [page, setPage] = useState<Page>(getPageFromPath);
+   const [language, setLanguage] = useState<Language>("pl");
+   const content = CONTENT[language];
+   const bullMark = content.images.bullMark;
+@@ -136,7 +149,7 @@ export default function App() {
+   }, [page]);
+ 
+   const scrollTo = (id: string) => {
+-    if (page === "gallery") {
++    if (page !== "home") {
+       window.history.pushState({}, "", `/#${id}`);
+       setPage("home");
+       setMobileOpen(false);
+@@ -185,6 +198,31 @@ export default function App() {
+     window.scrollTo({ top: 0, behavior: "auto" });
+   };
+ 
++  const openLegal = (kind: LegalKind) => {
++    if (page !== kind) {
++      window.history.pushState({}, "", PAGE_PATHS[kind]);
++      setPage(kind);
++    }
++
++    setMobileOpen(false);
++    window.scrollTo({ top: 0, behavior: "auto" });
++  };
++
++  const legalLinkClick =
++    (kind: LegalKind) => (event: React.MouseEvent<HTMLAnchorElement>) => {
++      if (
++        event.defaultPrevented ||
++        event.button !== 0 ||
++        event.metaKey ||
++        event.ctrlKey ||
++        event.shiftKey ||
++        event.altKey
++      )
++        return;
++      event.preventDefault();
++      openLegal(kind);
++    };
++
+   const galleryLabel =
+     language === "pl" ? "Galeria" : language === "en" ? "Gallery" : "Galerie";
+   const normalizedNavLinks = NAV_LINKS.map((link, index) =>
+@@ -421,6 +459,16 @@ export default function App() {
+ 
+       {page === "gallery" ? (
+         <Gallery language={language} />
++      ) : page === "privacy" || page === "cookies" ? (
++        <LegalPage
++          language={language}
++          kind={page}
++          contact={{
++            address: content.footer.address.display,
++            email: content.footer.email.display,
++          }}
++          onNavigate={openLegal}
++        />
+       ) : (
+         <main id="main" tabIndex={-1}>
+           {/* HERO */}
+@@ -983,6 +1031,7 @@ export default function App() {
+               <div className="flex flex-wrap gap-x-6 gap-y-3 text-[#8A7A6E] sm:justify-end">
+                 <a
+                   href="/polityka-prywatnosci"
++                  onClick={legalLinkClick("privacy")}
+                   className="transition-colors hover:text-[#7B2026]"
+                 >
+                   {legalLinks.privacy}
+@@ -990,18 +1039,21 @@ export default function App() {
+ 
+                 <a
+                   href="/polityka-cookies"
++                  onClick={legalLinkClick("cookies")}
+                   className="transition-colors hover:text-[#7B2026]"
+                 >
+                   {legalLinks.cookies}
+                 </a>
+ 
+-                <button
+-                  type="button"
+-                  onClick={openCookieSettings}
+-                  className="text-left uppercase tracking-[0.15em] transition-colors hover:text-[#7B2026]"
+-                >
+-                  {legalLinks.settings}
+-                </button>
++                {trackingAvailable && (
++                  <button
++                    type="button"
++                    onClick={openCookieSettings}
++                    className="text-left uppercase tracking-[0.15em] transition-colors hover:text-[#7B2026]"
++                  >
++                    {legalLinks.settings}
++                  </button>
++                )}
+               </div>
+             </div>
+           </div>
+@@ -1032,6 +1084,8 @@ export default function App() {
+           {reservationOpen && (
+             <iframe
+               src={DISH_RESERVATION_URL}
++              sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-popups-to-escape-sandbox"
++              referrerPolicy="strict-origin-when-cross-origin"
+               title={content.nav.mobileMenuCta}
+               className="min-h-0 w-full flex-1 border-0"
+             />
+diff --git a/src/LegalPage.tsx b/src/LegalPage.tsx
+new file mode 100644
+index 0000000..902ffb1
+--- /dev/null
++++ b/src/LegalPage.tsx
+@@ -0,0 +1,308 @@
++type Language = "pl" | "en" | "de";
++export type LegalKind = "privacy" | "cookies";
++
++type Section = { title: string; body: string[] };
++type Doc = { title: string; updated: string; sections: Section[] };
++
++// TODO before launch: replace with the full legal name of the data controller
++// (company / sole-proprietor name and tax ID), exactly as in the business register.
++const CONTROLLER_NAME = "Butcher Restaurant";
++
++type Contact = { address: string; email: string };
++
++function buildDocs(c: Contact): Record<Language, Record<LegalKind, Doc>> {
++  const controller = `${CONTROLLER_NAME}, ${c.address}, e-mail: ${c.email}`;
++
++  return {
++    pl: {
++      privacy: {
++        title: "Polityka prywatności",
++        updated: "Ostatnia aktualizacja: 10 listopada 2026",
++        sections: [
++          {
++            title: "1. Administrator danych",
++            body: [`Administratorem danych osobowych jest ${controller}.`],
++          },
++          {
++            title: "2. Jakie dane przetwarzamy i po co",
++            body: [
++              "Strona ma charakter informacyjny: nie ma kont użytkowników, formularzy kontaktowych ani newslettera.",
++              "Serwer, na którym działa strona, może zapisywać standardowe dane techniczne (adres IP, data i godzina, adres żądanego zasobu, typ przeglądarki). Przetwarzamy je w celu zapewnienia bezpieczeństwa i prawidłowego działania strony (art. 6 ust. 1 lit. f RODO) i przechowujemy przez okres niezbędny do tego celu.",
++            ],
++          },
++          {
++            title: "3. Rezerwacje stolika",
++            body: [
++              "Rezerwacji można dokonać w oknie systemu DISH, które ładuje się dopiero po kliknięciu przycisku rezerwacji. Dane podane w tym oknie (np. imię, telefon, e-mail, termin) przetwarza w celu obsługi rezerwacji restauracja oraz dostawca systemu rezerwacji, zgodnie z jego polityką prywatności (art. 6 ust. 1 lit. b RODO). Dane przechowujemy przez czas niezbędny do realizacji rezerwacji oraz, jeśli to konieczne, do dochodzenia lub obrony roszczeń.",
++            ],
++          },
++          {
++            title: "4. Zasoby i serwisy zewnętrzne",
++            body: [
++              "Czcionki i skrypty strony są hostowane na naszym serwerze. W wersjach angielskiej i niemieckiej niektóre zdjęcia są pobierane z serwisu Unsplash, co wiąże się z przekazaniem Twojego adresu IP temu serwisowi.",
++              "Linki do Google Maps, Instagrama, Facebooka i innych serwisów prowadzą poza naszą stronę; serwisy te stosują własne polityki prywatności.",
++            ],
++          },
++          {
++            title: "5. Pliki cookies",
++            body: ["Szczegóły znajdziesz w Polityce cookies."],
++          },
++          {
++            title: "6. Twoje prawa",
++            body: [
++              "Masz prawo dostępu do swoich danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, sprzeciwu wobec przetwarzania opartego na prawnie uzasadnionym interesie oraz przenoszenia danych (gdy ma zastosowanie).",
++              `W sprawach dotyczących danych napisz na: ${c.email}. Masz też prawo wnieść skargę do Prezesa Urzędu Ochrony Danych Osobowych.`,
++            ],
++          },
++        ],
++      },
++      cookies: {
++        title: "Polityka cookies",
++        updated: "Ostatnia aktualizacja: 10 listopada 2026",
++        sections: [
++          {
++            title: "Czego używamy",
++            body: [
++              "Ta strona nie ustawia własnych plików cookies i nie korzysta z narzędzi analitycznych ani marketingowych.",
++            ],
++          },
++          {
++            title: "Zgody na przyszłość",
++            body: [
++              "Jeżeli w przyszłości włączymy narzędzia analityczne lub marketingowe, uruchomimy je dopiero po uzyskaniu Twojej zgody. Wybór zapiszemy w pamięci przeglądarki (localStorage) na 180 dni; zgodę będzie można zmienić w „Ustawieniach cookies” w stopce.",
++            ],
++          },
++          {
++            title: "Okno rezerwacji DISH",
++            body: [
++              "Okno rezerwacji to osobny serwis zewnętrzny, który może używać własnych plików cookies lub podobnych technologii. Ładuje się dopiero po kliknięciu przycisku rezerwacji.",
++            ],
++          },
++          {
++            title: "Zarządzanie cookies",
++            body: [
++              "Pliki cookies możesz w każdej chwili usunąć lub zablokować w ustawieniach swojej przeglądarki.",
++            ],
++          },
++        ],
++      },
++    },
++    en: {
++      privacy: {
++        title: "Privacy policy",
++        updated: "Last updated: 10 November 2026",
++        sections: [
++          {
++            title: "1. Data controller",
++            body: [`The controller of personal data is ${controller}.`],
++          },
++          {
++            title: "2. What data we process and why",
++            body: [
++              "This website is informational: there are no user accounts, contact forms or newsletters.",
++              "The server hosting the website may record standard technical data (IP address, date and time, requested resource, browser type). We process it to keep the website secure and working properly (Art. 6(1)(f) GDPR) and keep it only as long as necessary for that purpose.",
++            ],
++          },
++          {
++            title: "3. Table reservations",
++            body: [
++              "You can book a table in the DISH reservation window, which loads only after you click the reservation button. The data you enter there (e.g. name, phone, e-mail, date) is processed by the restaurant and by the reservation system provider, in line with its privacy policy, to handle your booking (Art. 6(1)(b) GDPR). We keep it for as long as needed to fulfil the booking and, where necessary, to establish or defend legal claims.",
++            ],
++          },
++          {
++            title: "4. External resources and services",
++            body: [
++              "Fonts and scripts are hosted on our own server. In the English and German versions some photos are loaded from Unsplash, which means your IP address is transmitted to that service.",
++              "Links to Google Maps, Instagram, Facebook and other services lead away from our website; those services have their own privacy policies.",
++            ],
++          },
++          {
++            title: "5. Cookies",
++            body: ["See our Cookie policy for details."],
++          },
++          {
++            title: "6. Your rights",
++            body: [
++              "You have the right to access your data, have it rectified or erased, restrict processing, object to processing based on legitimate interests, and (where applicable) data portability.",
++              `For data protection matters, write to: ${c.email}. You also have the right to lodge a complaint with your data protection supervisory authority (in Poland: the President of the Personal Data Protection Office, UODO).`,
++            ],
++          },
++        ],
++      },
++      cookies: {
++        title: "Cookie policy",
++        updated: "Last updated: 10 November 2026",
++        sections: [
++          {
++            title: "What we use",
++            body: [
++              "This website sets no cookies of its own and uses no analytics or marketing tools.",
++            ],
++          },
++          {
++            title: "Future consent",
++            body: [
++              "If we enable analytics or marketing tools in the future, they will start only after you consent. Your choice will be stored in your browser (localStorage) for 180 days and can be changed under “Cookie settings” in the footer.",
++            ],
++          },
++          {
++            title: "DISH reservation window",
++            body: [
++              "The reservation window is a separate third-party service that may use its own cookies or similar technologies. It loads only after you click the reservation button.",
++            ],
++          },
++          {
++            title: "Managing cookies",
++            body: [
++              "You can delete or block cookies at any time in your browser settings.",
++            ],
++          },
++        ],
++      },
++    },
++    de: {
++      privacy: {
++        title: "Datenschutzerklärung",
++        updated: "Zuletzt aktualisiert: 10. November 2026",
++        sections: [
++          {
++            title: "1. Verantwortlicher",
++            body: [`Verantwortlicher für die Verarbeitung personenbezogener Daten ist ${controller}.`],
++          },
++          {
++            title: "2. Welche Daten wir verarbeiten und warum",
++            body: [
++              "Diese Website dient der Information: Es gibt keine Benutzerkonten, Kontaktformulare oder Newsletter.",
++              "Der Server, auf dem die Website läuft, kann technische Standarddaten speichern (IP-Adresse, Datum und Uhrzeit, angeforderte Ressource, Browsertyp). Wir verarbeiten sie, um die Sicherheit und den ordnungsgemäßen Betrieb der Website zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO), und speichern sie nur so lange, wie es dafür erforderlich ist.",
++            ],
++          },
++          {
++            title: "3. Tischreservierung",
++            body: [
++              "Eine Reservierung ist im DISH-Reservierungsfenster möglich, das erst nach einem Klick auf die Reservierungsschaltfläche geladen wird. Die dort eingegebenen Daten (z. B. Name, Telefon, E-Mail, Termin) werden zur Abwicklung der Reservierung vom Restaurant und vom Anbieter des Reservierungssystems gemäß dessen Datenschutzerklärung verarbeitet (Art. 6 Abs. 1 lit. b DSGVO). Wir speichern sie so lange, wie es für die Durchführung der Reservierung und gegebenenfalls zur Geltendmachung oder Abwehr von Rechtsansprüchen erforderlich ist.",
++            ],
++          },
++          {
++            title: "4. Externe Ressourcen und Dienste",
++            body: [
++              "Schriften und Skripte werden auf unserem eigenen Server bereitgestellt. In der englischen und deutschen Version werden einige Fotos von Unsplash geladen; dabei wird Ihre IP-Adresse an diesen Dienst übermittelt.",
++              "Links zu Google Maps, Instagram, Facebook und anderen Diensten führen von unserer Website weg; diese Dienste haben eigene Datenschutzerklärungen.",
++            ],
++          },
++          {
++            title: "5. Cookies",
++            body: ["Einzelheiten finden Sie in der Cookie-Richtlinie."],
++          },
++          {
++            title: "6. Ihre Rechte",
++            body: [
++              "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch gegen eine auf berechtigten Interessen beruhende Verarbeitung sowie (soweit anwendbar) Datenübertragbarkeit.",
++              `Bei Datenschutzfragen schreiben Sie an: ${c.email}. Sie haben außerdem das Recht, bei einer Datenschutzaufsichtsbehörde Beschwerde einzulegen (in Polen: Präsident der Datenschutzbehörde UODO).`,
++            ],
++          },
++        ],
++      },
++      cookies: {
++        title: "Cookie-Richtlinie",
++        updated: "Zuletzt aktualisiert: 10. November 2026",
++        sections: [
++          {
++            title: "Was wir verwenden",
++            body: [
++              "Diese Website setzt keine eigenen Cookies und nutzt keine Analyse- oder Marketing-Tools.",
++            ],
++          },
++          {
++            title: "Künftige Einwilligung",
++            body: [
++              "Sollten wir künftig Analyse- oder Marketing-Tools einsetzen, starten sie erst nach Ihrer Einwilligung. Ihre Auswahl wird 180 Tage im Browser (localStorage) gespeichert und kann über „Cookie-Einstellungen“ in der Fußzeile geändert werden.",
++            ],
++          },
++          {
++            title: "DISH-Reservierungsfenster",
++            body: [
++              "Das Reservierungsfenster ist ein separater externer Dienst, der eigene Cookies oder ähnliche Technologien verwenden kann. Es wird erst nach einem Klick auf die Reservierungsschaltfläche geladen.",
++            ],
++          },
++          {
++            title: "Cookies verwalten",
++            body: [
++              "Sie können Cookies jederzeit in den Einstellungen Ihres Browsers löschen oder blockieren.",
++            ],
++          },
++        ],
++      },
++    },
++  };
++}
++
++export function LegalPage({
++  language,
++  kind,
++  contact,
++  onNavigate,
++}: {
++  language: Language;
++  kind: LegalKind;
++  contact: Contact;
++  onNavigate: (kind: LegalKind) => void;
++}) {
++  const docs = buildDocs(contact)[language];
++  const doc = docs[kind];
++  const other: LegalKind = kind === "privacy" ? "cookies" : "privacy";
++  const otherPath =
++    other === "privacy" ? "/polityka-prywatnosci" : "/polityka-cookies";
++
++  return (
++    <main id="main" tabIndex={-1} className="pt-[76px]">
++      <div className="mx-auto w-full max-w-[820px] px-5 py-16 sm:px-8 sm:py-24">
++        <h1 className="font-serif text-[clamp(36px,6vw,60px)] font-normal leading-[1] tracking-[-0.03em] text-[#251B17]">
++          {doc.title}
++        </h1>
++        <p className="mt-4 text-xs uppercase tracking-[0.16em] text-[#6F6259]">
++          {doc.updated}
++        </p>
++
++        <div className="mt-12 space-y-10">
++          {doc.sections.map((section) => (
++            <section key={section.title}>
++              <h2 className="font-serif text-2xl text-[#251B17]">
++                {section.title}
++              </h2>
++              {section.body.map((paragraph) => (
++                <p
++                  key={paragraph}
++                  className="mt-3 text-[15px] leading-7 text-[#5F5148]"
++                >
++                  {paragraph}
++                </p>
++              ))}
++            </section>
++          ))}
++        </div>
++
++        <p className="mt-14 border-t border-[#D8CDBF] pt-6 text-sm">
++          <a
++            href={otherPath}
++            onClick={(event) => {
++              if (
++                event.defaultPrevented ||
++                event.button !== 0 ||
++                event.metaKey ||
++                event.ctrlKey ||
++                event.shiftKey ||
++                event.altKey
++              )
++                return;
++              event.preventDefault();
++              onNavigate(other);
++            }}
++            className="text-[#7B2026] underline underline-offset-4"
++          >
++            {docs[other].title}
++          </a>
++        </p>
++      </div>
++    </main>
++  );
++}
+diff --git a/src/index.css b/src/index.css
+index 299ffe8..45072a9 100644
+--- a/src/index.css
++++ b/src/index.css
+@@ -1,14 +1,19 @@
+-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;0,6..96,800;0,6..96,900;1,6..96,400;1,6..96,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@300;400&display=swap");
+ 
++/* Fonts are self-hosted (CSP: font-src 'self'; no IP leak to Google). */
++@import "@fontsource-variable/bodoni-moda/opsz.css";
++@import "@fontsource-variable/bodoni-moda/opsz-italic.css";
++@import "@fontsource-variable/plus-jakarta-sans/wght.css";
++@import "@fontsource/dm-mono/300.css";
++@import "@fontsource/dm-mono/400.css";
+ @import "tailwindcss";
+ @theme {
+-  --font-serif: "Bodoni Moda", serif;
+-  --font-sans: "Plus Jakarta Sans", sans-serif;
++  --font-serif: "Bodoni Moda Variable", "Bodoni Moda", serif;
++  --font-sans: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", sans-serif;
+   --font-mono: "DM Mono", monospace;
+ }
+ 
+ .font-butcher {
+-  font-family: "Bodoni Moda", serif;
++  font-family: "Bodoni Moda Variable", "Bodoni Moda", serif;
+ }
+ 
+ :root {
+diff --git a/src/security/PrivacyControls.tsx b/src/security/PrivacyControls.tsx
+index efa4c82..5bef5c9 100644
+--- a/src/security/PrivacyControls.tsx
++++ b/src/security/PrivacyControls.tsx
+@@ -13,10 +13,12 @@ export function PrivacyControls() {
+     initTracking();
+     const sync = (event: StorageEvent) => { if (event.key === KEY || event.key === null) location.reload(); };
+     const expire = () => { if (choice && !readChoice()) location.reload(); };
++    const open = () => { setVisible(true); window.setTimeout(() => panel.current?.focus(), 0); };
+     window.addEventListener("storage", sync);
+     window.addEventListener("focus", expire);
++    window.addEventListener("open-cookie-settings", open);
+     const timer = window.setInterval(expire, 60_000);
+-    return () => { window.removeEventListener("storage", sync); window.removeEventListener("focus", expire); clearInterval(timer); };
++    return () => { window.removeEventListener("storage", sync); window.removeEventListener("focus", expire); window.removeEventListener("open-cookie-settings", open); clearInterval(timer); };
+   }, [choice]);
+   function save(a: boolean, m: boolean) {
+     if (!saveChoice(a, m)) setError("Nie udało się zapisać wyboru. Nie włączono dodatkowych narzędzi. Sprawdź ustawienia pamięci przeglądarki.");
+diff --git a/src/security/consent.ts b/src/security/consent.ts
+index ece41d3..9ea892d 100644
+--- a/src/security/consent.ts
++++ b/src/security/consent.ts
+@@ -7,6 +7,7 @@ type TagWindow = Window & { dataLayer?: unknown[]; gtag?: (...args: unknown[]) =
+ const w = window as TagWindow;
+ let started = false;
+ export const available = { analytics: /^G-[A-Z0-9]+$/.test(CONFIG.analyticsId), marketing: /^AW-\d+$/.test(CONFIG.marketingId) };
++export const trackingAvailable = available.analytics || available.marketing;
+ export function readChoice(): Choice | null {
+   try {
+     const c = JSON.parse(localStorage.getItem(KEY) || "null");
+diff --git a/src/security/contact-handler.ts b/src/security/contact-handler.ts
+index e04f6ec..a8b1d8f 100644
+--- a/src/security/contact-handler.ts
++++ b/src/security/contact-handler.ts
+@@ -6,14 +6,25 @@ type Dependencies = {
+   turnstileSecret: string;
+   enqueue: (message: { email: string; message: string }) => Promise<void>;
+ };
++// Intentional: reject control characters (except \t, \n, \r) in the message body.
++// oxlint-disable-next-line no-control-regex
++const CONTROL_CHARS = /[\u0000-\u0008\u000B\u000C\u000E-\u001F]/;
+ export async function contact(request: Request, deps: Dependencies): Promise<Response> {
+   const reply = (status: number, message: string) => Response.json({ message }, {
+     status, headers: { "Cache-Control": "no-store" } });
+   if (request.method !== "POST") return new Response(null, { status: 405, headers: { Allow: "POST" } });
+   if (request.headers.get("origin") !== deps.origin) return reply(403, "Niedozwolone źródło.");
+   if (request.headers.get("content-type")?.split(";")[0].trim() !== "application/json") return reply(415, "Wymagany JSON.");
++  // Defence in depth: the reverse proxy already caps the body at 16 KiB.
++  const MAX_BODY = 16 * 1024;
++  const declared = Number(request.headers.get("content-length"));
++  if (Number.isFinite(declared) && declared > MAX_BODY) return reply(413, "Zbyt duże żądanie.");
+   let body: unknown;
+-  try { body = await request.json(); } catch { return reply(400, "Nieprawidłowe dane."); }
++  try {
++    const raw = await request.text();
++    if (new TextEncoder().encode(raw).length > MAX_BODY) return reply(413, "Zbyt duże żądanie.");
++    body = JSON.parse(raw);
++  } catch { return reply(400, "Nieprawidłowe dane."); }
+   if (!body || typeof body !== "object" || Array.isArray(body)) return reply(400, "Nieprawidłowe dane.");
+   const b = body as Record<string, unknown>;
+   if (Object.keys(b).some(k => !["email", "message", "token"].includes(k))) return reply(400, "Nieznane pole.");
+@@ -22,7 +33,7 @@ export async function contact(request: Request, deps: Dependencies): Promise<Res
+   const message = b.message.normalize("NFC").trim();
+   // A pragmatic format check; do not reject names/punctuation in the message.
+   if (email.length > 254 || /[\r\n]/.test(email) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+-      message.length < 10 || message.length > 4000 || /[\u0000-\u0008\u000B\u000C\u000E-\u001F]/.test(message) ||
++      message.length < 10 || message.length > 4000 || CONTROL_CHARS.test(message) ||
+       b.token.length < 1 || b.token.length > 2048) return reply(400, "Sprawdź e-mail i treść (10–4000 znaków).");
+   if (!deps.turnstileSecret) return reply(503, "Formularz chwilowo niedostępny.");
+   try {
+diff --git a/src/security/headers.conf b/src/security/headers.conf
+index 1653f92..b2a1b8b 100644
+--- a/src/security/headers.conf
++++ b/src/security/headers.conf
+@@ -1,7 +1,20 @@
++# Install as /etc/nginx/snippets/butcher-headers.conf (name used in nginx.conf.example).
+ # Include in EVERY location that defines its own add_header (NGINX inheritance).
+-add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://images.unsplash.com; font-src 'self'; connect-src 'self'; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests" always;
+-add_header Strict-Transport-Security "max-age=31536000" always;
++#
++# frame-src: only the DISH reservation widget (opened on demand in a <dialog>).
++# fonts are self-hosted, so style-src/font-src stay 'self'.
++#
++# When you enable analytics / Turnstile, extend the policy BEFORE shipping:
++#   Google Analytics/Ads: script-src += https://www.googletagmanager.com
++#                         connect-src += https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com
++#                         img-src     += https://*.google-analytics.com https://*.googletagmanager.com
++#   Cloudflare Turnstile: script-src += https://challenges.cloudflare.com
++#                         frame-src  += https://challenges.cloudflare.com
++add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://images.unsplash.com; font-src 'self'; connect-src 'self'; frame-src https://reservation.dish.co; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests" always;
++add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+ add_header X-Frame-Options "DENY" always;
+ add_header X-Content-Type-Options "nosniff" always;
+ add_header Referrer-Policy "strict-origin-when-cross-origin" always;
++# payment=() blocks Payment Request API also inside the DISH iframe. If the booking
++# widget takes deposits, test it and change to: payment=(self "https://reservation.dish.co")
+ add_header Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()" always;
+diff --git a/src/security/nginx.conf.example b/src/security/nginx.conf.example
+index e1f846f..8f955a4 100644
+--- a/src/security/nginx.conf.example
++++ b/src/security/nginx.conf.example
+@@ -1,5 +1,22 @@
+ # Inside http {}. Replace domain, certificate paths, root and upstream.
++# Copy headers.conf to /etc/nginx/snippets/butcher-headers.conf.
++# If this sits behind a CDN/proxy (e.g. Cloudflare), restore the real client IP first
++# (ngx_http_realip_module: set_real_ip_from <proxy ranges>; real_ip_header CF-Connecting-IP;)
++# otherwise limit_req below sees only the proxy's address.
+ limit_req_zone $binary_remote_addr zone=contact:10m rate=5r/m;
++
++# Reject requests for unknown Host names (no certificate is served for them).
++server {
++    listen 80 default_server;
++    server_name _;
++    return 444;
++}
++server {
++    listen 443 ssl default_server;
++    server_name _;
++    ssl_reject_handshake on;
++}
++
+ server {
+     listen 80;
+     server_name restaurant.example;
+@@ -7,10 +24,14 @@ server {
+ }
+ server {
+     listen 443 ssl;
++    http2 on;
+     server_name restaurant.example;
+     ssl_certificate /etc/letsencrypt/live/restaurant.example/fullchain.pem;
+     ssl_certificate_key /etc/letsencrypt/live/restaurant.example/privkey.pem;
+     ssl_protocols TLSv1.2 TLSv1.3;
++    ssl_session_tickets off;
++    ssl_stapling on;
++    ssl_stapling_verify on;
+     server_tokens off;
+     root /var/www/butcher/dist;
+     include /etc/nginx/mime.types;
+@@ -23,6 +44,11 @@ server {
+     # Brotli is optional: enable only if ngx_brotli is installed and verified.
+     # brotli on;
+     # brotli_types text/css application/javascript application/json image/svg+xml;
++
++    # Hidden files (.git, .env, ...) are never served.
++    location ~ /\.(?!well-known) {
++        return 404;
++    }
+     location /assets/ {
+         try_files $uri =404;
+         include /etc/nginx/snippets/butcher-headers.conf;
+@@ -38,6 +64,7 @@ server {
+         proxy_pass http://127.0.0.1:3001;
+         proxy_set_header Host $host;
+         proxy_set_header X-Forwarded-Proto $scheme;
++        proxy_set_header X-Forwarded-For $remote_addr;
+         proxy_set_header X-Real-IP $remote_addr;
+     }
+     location / {
+diff --git a/vite.config.ts b/vite.config.ts
+index 0ce1839..b7eaf30 100644
+--- a/vite.config.ts
++++ b/vite.config.ts
+@@ -4,4 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
+ 
+ export default defineConfig({
+   plugins: [react(), tailwindcss()],
++  build: {
++    // CSP has font-src 'self' (no data:), so never inline fonts into the CSS.
++    assetsInlineLimit: 0,
++    sourcemap: false,
++  },
+ });

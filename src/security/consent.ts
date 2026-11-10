@@ -7,6 +7,7 @@ type TagWindow = Window & { dataLayer?: unknown[]; gtag?: (...args: unknown[]) =
 const w = window as TagWindow;
 let started = false;
 export const available = { analytics: /^G-[A-Z0-9]+$/.test(CONFIG.analyticsId), marketing: /^AW-\d+$/.test(CONFIG.marketingId) };
+export const trackingAvailable = available.analytics || available.marketing;
 export function readChoice(): Choice | null {
   try {
     const c = JSON.parse(localStorage.getItem(KEY) || "null");

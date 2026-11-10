@@ -1,5 +1,22 @@
 # Inside http {}. Replace domain, certificate paths, root and upstream.
+# Copy headers.conf to /etc/nginx/snippets/butcher-headers.conf.
+# If this sits behind a CDN/proxy (e.g. Cloudflare), restore the real client IP first
+# (ngx_http_realip_module: set_real_ip_from <proxy ranges>; real_ip_header CF-Connecting-IP;)
+# otherwise limit_req below sees only the proxy's address.
 limit_req_zone $binary_remote_addr zone=contact:10m rate=5r/m;
+
+# Reject requests for unknown Host names (no certificate is served for them).
+server {
+    listen 80 default_server;
+    server_name _;
+    return 444;
+}
+server {
+    listen 443 ssl default_server;
+    server_name _;
+    ssl_reject_handshake on;
+}
+
 server {
     listen 80;
     server_name restaurant.example;
@@ -7,10 +24,14 @@ server {
 }
 server {
     listen 443 ssl;
+    http2 on;
     server_name restaurant.example;
     ssl_certificate /etc/letsencrypt/live/restaurant.example/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/restaurant.example/privkey.pem;
     ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_session_tickets off;
+    ssl_stapling on;
+    ssl_stapling_verify on;
     server_tokens off;
     root /var/www/butcher/dist;
     include /etc/nginx/mime.types;
@@ -23,6 +44,11 @@ server {
     # Brotli is optional: enable only if ngx_brotli is installed and verified.
     # brotli on;
     # brotli_types text/css application/javascript application/json image/svg+xml;
+
+    # Hidden files (.git, .env, ...) are never served.
+    location ~ /\.(?!well-known) {
+        return 404;
+    }
     location /assets/ {
         try_files $uri =404;
         include /etc/nginx/snippets/butcher-headers.conf;
@@ -38,6 +64,7 @@ server {
         proxy_pass http://127.0.0.1:3001;
         proxy_set_header Host $host;
         proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $remote_addr;
         proxy_set_header X-Real-IP $remote_addr;
     }
     location / {

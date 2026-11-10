@@ -4,4 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  build: {
+    // CSP has font-src 'self' (no data:), so never inline fonts into the CSS.
+    assetsInlineLimit: 0,
+    sourcemap: false,
+  },
 });
