@@ -1,18 +1,15 @@
 import "./security/original.css";
 import { PrivacyControls } from "./security/PrivacyControls";
 import "./security/security.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   ArrowDown,
   ArrowUpRight,
-  CalendarDays,
-  Clock3,
   Mail,
   MapPin,
   Menu,
   Phone,
-  UsersRound,
   X,
 } from "lucide-react";
 
@@ -23,6 +20,15 @@ import { Gallery } from "./Gallery";
 
 type Language = "pl" | "en" | "de";
 const CONTENT = { pl: contentPL, en: contentEN, de: contentDE };
+
+const DISH_RESERVATION_URL =
+  "https://reservation.dish.co/widget/hydra-98f71438-ceca-48a8-8e0e-b57b86c31ba1?lang=pl";
+
+const DISH_RESERVATION_CLOSE_LABEL = {
+  pl: "Zamknij okno rezerwacji",
+  en: "Close booking window",
+  de: "Reservierungsfenster schließen",
+};
 
 function Divider({ className = "" }: { className?: string }) {
   return <div className={`h-px w-full bg-[#D8CDBF] ${className}`} />;
@@ -51,23 +57,33 @@ export default function App() {
   const NAV_LINKS = content.nav.links;
   const BRAND_VALUES = content.brandValues;
   const MENU_DATA = content.menu.categories;
-  const GODZINY = content.reservation.availableTimes;
-
-  const guestLabel = (count: number) => {
-    const { one, few, many } = content.reservation.guestLabels;
-    if (count === 1) return one;
-    if (count < 5) return few;
-    return many;
-  };
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [reservationOpen, setReservationOpen] = useState(false);
+  const reservationDialog = useRef<HTMLDialogElement>(null);
 
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(1);
 
-  const [data, setData] = useState("");
-  const [godzina, setGodzina] = useState("");
-  const [goscie, setGoscie] = useState("2");
+  const openReservation = () => {
+    const dialog = reservationDialog.current;
+    if (!dialog || dialog.open) return;
+
+    setMobileOpen(false);
+    dialog.showModal();
+    setReservationOpen(true);
+  };
+
+  useEffect(() => {
+    if (!reservationOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [reservationOpen]);
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -189,7 +205,12 @@ export default function App() {
   const activeCategoryData = MENU_DATA[activeCategoryIndex] ?? MENU_DATA[0];
 
   const activeItems = activeCategoryData?.items ?? [];
-  const activeNote = activeCategoryData?.note;
+  const activeNote =
+    activeCategoryData &&
+    "note" in activeCategoryData &&
+    typeof activeCategoryData.note === "string"
+      ? activeCategoryData.note
+      : undefined;
   const activeAddons = activeCategoryData?.addons;
   const activeAddonsTitle = activeCategoryData?.addonsTitle;
 
@@ -282,12 +303,10 @@ export default function App() {
           <div className="flex items-center gap-2 sm:gap-3">
             {/* RESERVATION BUTTON */}
             <button
-              onMouseDown={(event) => event.preventDefault()}
-              onClick={(event) => {
-                event.currentTarget.blur();
-                scrollTo("rezerwacje");
-              }}
-              className="select-none border border-[#7B2026] bg-[#7B2026] px-3 py-2.5 text-[9px] font-semibold uppercase tracking-[0.13em] text-white outline-none transition-colors duration-300 hover:bg-[#5F171C] sm:px-5 sm:py-3 sm:text-[10px] sm:tracking-[0.17em] lg:px-6"
+              type="button"
+              aria-haspopup="dialog"
+              onClick={openReservation}
+              className="select-none border border-[#7B2026] bg-[#7B2026] px-3 py-2.5 text-[9px] font-semibold uppercase tracking-[0.13em] text-white transition-colors duration-300 hover:bg-[#5F171C] sm:px-5 sm:py-3 sm:text-[10px] sm:tracking-[0.17em] lg:px-6"
             >
               {content.nav.reservationCta}
             </button>
@@ -390,7 +409,9 @@ export default function App() {
         </div>
 
         <button
-          onClick={() => scrollTo("rezerwacje")}
+          type="button"
+          aria-haspopup="dialog"
+          onClick={openReservation}
           className="mt-8 flex items-center justify-between bg-[#7B2026] px-5 py-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-white"
         >
           {content.nav.mobileMenuCta}
@@ -434,7 +455,9 @@ export default function App() {
 
                   <div className="mt-5 flex flex-wrap gap-3">
                     <button
-                      onClick={() => scrollTo("rezerwacje")}
+                      type="button"
+                      aria-haspopup="dialog"
+                      onClick={openReservation}
                       className="bg-[#7B2026] px-7 py-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#5F171C]"
                     >
                       {content.hero.ctaPrimary}
@@ -712,11 +735,6 @@ export default function App() {
                             {content.menu.currency}
                           </span>
                         </span>
-
-                        <ArrowUpRight
-                          className="menu-arrow mt-0.5 hidden text-[#7B2026] opacity-0 transition-all sm:block"
-                          size={13}
-                        />
                       </div>
                     </div>
                   ))}
@@ -819,83 +837,20 @@ export default function App() {
                 <h2 className="font-serif text-[clamp(48px,7vw,86px)] font-normal leading-[0.95] tracking-[-0.04em] text-[#251B17]">
                   {content.reservation.title}
                 </h2>
-
-                <p className="mx-auto mt-5 max-w-md text-sm font-normal leading-7 text-[#5F5148]">
-                  {content.reservation.description}
-                </p>
               </div>
 
               <div
-                className="border border-[#CFC2B4] bg-[#FFFDFC] p-5 sm:p-7"
+                className="flex justify-center border border-[#CFC2B4] bg-[#FFFDFC] p-5 sm:p-7"
                 data-reveal="delay-1"
               >
-                <div className="grid w-full min-w-0 gap-4 md:grid-cols-[1fr_1fr_1fr_auto] md:items-end">
-                  <label className="block w-full min-w-0">
-                    <span className="mb-2 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.17em] text-[#6F6259]">
-                      <CalendarDays size={13} />
-                      {content.reservation.dateLabel}
-                    </span>
-
-                    <input
-                      type="date"
-                      value={data}
-                      onChange={(event) => setData(event.target.value)}
-                      className="block h-[52px] w-full min-w-0 max-w-full appearance-none rounded-none border border-[#D8CDBF] bg-white px-4 text-[16px] leading-none text-[#251B17] outline-none transition-colors [box-sizing:border-box] [&::-webkit-date-and-time-value]:m-0 [&::-webkit-date-and-time-value]:min-w-0 [&::-webkit-date-and-time-value]:text-left focus:border-[#7B2026] sm:text-sm"
-                    />
-                  </label>
-
-                  <label className="block w-full min-w-0">
-                    <span className="mb-2 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.17em] text-[#6F6259]">
-                      <Clock3 size={13} />
-                      {content.reservation.timeLabel}
-                    </span>
-
-                    <select
-                      value={godzina}
-                      onChange={(event) => setGodzina(event.target.value)}
-                      className="block h-[52px] w-full min-w-0 max-w-full cursor-pointer appearance-none rounded-none border border-[#D8CDBF] bg-white px-4 text-[16px] leading-none text-[#251B17] outline-none transition-colors [box-sizing:border-box] focus:border-[#7B2026] sm:text-sm"
-                    >
-                      <option value="">
-                        {content.reservation.timePlaceholder}
-                      </option>
-
-                      {GODZINY.map((time, index) => (
-                        <option key={`${time}-${index}`} value={time}>
-                          {time}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-
-                  <label className="block w-full min-w-0">
-                    <span className="mb-2 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.17em] text-[#6F6259]">
-                      <UsersRound size={13} />
-                      {content.reservation.guestsLabel}
-                    </span>
-
-                    <select
-                      value={goscie}
-                      onChange={(event) => setGoscie(event.target.value)}
-                      className="block h-[52px] w-full min-w-0 max-w-full cursor-pointer appearance-none rounded-none border border-[#D8CDBF] bg-white px-4 text-[16px] leading-none text-[#251B17] outline-none transition-colors [box-sizing:border-box] focus:border-[#7B2026] sm:text-sm"
-                    >
-                      {Array.from(
-                        {
-                          length: content.reservation.maxGuestsOption,
-                        },
-                        (_, i) => i + 1,
-                      ).map((count) => (
-                        <option key={count} value={count}>
-                          {count} {guestLabel(count)}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-
-                  <button className="flex h-[52px] w-full min-w-0 appearance-none items-center justify-center gap-3 rounded-none bg-[#7B2026] px-7 text-[10px] font-semibold uppercase tracking-[0.17em] text-white transition-colors [box-sizing:border-box] hover:bg-[#5F171C] md:w-auto">
-                    {content.reservation.submitCta}
-                    <ArrowUpRight size={14} />
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  aria-haspopup="dialog"
+                  onClick={openReservation}
+                  className="inline-flex min-h-[52px] w-full items-center justify-center gap-3 bg-[#7B2026] px-7 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.17em] text-white transition-colors hover:bg-[#5F171C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7B2026] sm:w-auto"
+                >
+                  {content.nav.mobileMenuCta}
+                </button>
               </div>
 
               <p className="mt-6 text-center text-[10px] font-medium tracking-[0.10em] text-[#6F6259]">
@@ -1052,6 +1007,37 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      <dialog
+        ref={reservationDialog}
+        onClose={() => setReservationOpen(false)}
+        aria-labelledby="reservation-dialog-title"
+        className="fixed inset-0 m-auto h-[90dvh] max-h-[760px] w-[96vw] max-w-2xl overflow-hidden rounded-xl border border-[#CFC2B4] bg-[#FFFDFC] p-0 text-[#251B17] shadow-2xl backdrop:bg-black/60"
+      >
+        <div className="flex h-full flex-col">
+          <div className="flex shrink-0 items-center justify-between gap-3 border-b border-[#D8CDBF] px-4 py-2 sm:px-6">
+            <h2 id="reservation-dialog-title" className="font-serif text-xl">
+              {content.nav.mobileMenuCta}
+            </h2>
+            <form method="dialog">
+              <button
+                type="submit"
+                aria-label={DISH_RESERVATION_CLOSE_LABEL[language]}
+                className="flex h-11 w-11 items-center justify-center rounded-full text-[#7B2026] transition-colors hover:bg-[#EFE7DC] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#7B2026]"
+              >
+                <X size={22} aria-hidden="true" />
+              </button>
+            </form>
+          </div>
+          {reservationOpen && (
+            <iframe
+              src={DISH_RESERVATION_URL}
+              title={content.nav.mobileMenuCta}
+              className="min-h-0 w-full flex-1 border-0"
+            />
+          )}
+        </div>
+      </dialog>
 
       <PrivacyControls />
     </div>

@@ -106,36 +106,46 @@
         "items": [
           {
             "name": "Beef Tenderloin Tartare",
-            "description": "Tenderloin (160g), egg yolk, pickles, anchovies, Dijon mustard, pickled mushrooms, lovage mayonnaise, artisan bread",
+            "description": "Beef tenderloin (80 g), egg yolk, pickles, anchovies, Dijon mustard, pickled mushrooms, lovage mayonnaise, bread",
             "price": "60"
           },
           {
-            "name": "Butcher Wings",
-            "description": "Chicken meat, Louisiana-Tabasco sauce, honey, soy sauce, sesame seeds, chives",
+            "name": "Flambéed Vannamei Shrimp with Mango and Sambuca",
+            "description": "Mango, chili, tarragon, anise, garlic, honey, sambuca, butter",
+            "price": "69"
+          },
+          {
+            "name": "Butcher Chicken Wings (8 pcs.)",
+            "description": "Chicken, Louisiana-Tabasco sauce, honey, soy sauce, sesame seeds, chives",
             "price": "49"
           },
           {
             "name": "Beef Tenderloin Carpaccio",
-            "description": "Beef tenderloin (80g), olive oil, capers, arugula, cherry tomatoes, Grana Padano cheese, artisan bread",
+            "description": "Beef tenderloin (80 g), olive oil, capers, arugula, cherry tomatoes, Grana Padano, bread",
+            "price": "58"
+          },
+          {
+            "name": "Classic Caesar Salad with Chicken",
+            "description": "Chicken, capers, cherry tomatoes, egg, bacon, Grana Padano, Caesar dressing, anchovies, romaine lettuce, croutons",
             "price": "56"
           },
           {
-            "name": "Chicken Caesar Salad",
-            "description": "Chicken (100g), capers, cherry tomatoes, egg, bacon, Grana Padano cheese, Caesar dressing, romaine lettuce, croutons",
-            "price": "56"
+            "name": "Classic Caesar Salad with Shrimp",
+            "description": "Shrimp, capers, cherry tomatoes, egg, bacon, Grana Padano, Caesar dressing, anchovies, romaine lettuce, croutons",
+            "price": "68"
           },
           {
-            "name": "Antipasti Misto",
-            "description": "Selection of Italian cheeses and cold cuts",
-            "price": "119"
+            "name": "Butcher Autumn Salad",
+            "description": "Sous-vide beef, roasted pumpkin, seasonal fruit, Gorgonzola, pumpkin seeds, mixed greens, cranberry and raspberry vinaigrette with anise, bread",
+            "price": "64"
           },
           {
-            "name": "Thai Soup",
-            "description": "Mixed fish, mixed seafood, rice, coconut milk, cilantro, lime, spices, tom yum noodles",
-            "price": "42"
+            "name": "Wild Mushroom Soup",
+            "description": "Porcini, chanterelles, bay boletes, vegetables, potato purée, cream, kale and parsley crisps, green olive oil",
+            "price": "38"
           },
           {
-            "name": "Roasted Meat Broth",
+            "name": "Roasted Meat Broth with Homemade Noodles",
             "description": "Beef, poultry, vegetables, spices, wheat noodles",
             "price": "32"
           }
@@ -145,28 +155,28 @@
         "category": "Main Courses",
         "items": [
           {
-            "name": "Baked Gilt-head Bream with Roasted Potatoes and Coleslaw",
-            "description": "Whole bream (300g), potatoes, coleslaw",
-            "price": "89"
+            "name": "Filet Mignon with Breaded Mushrooms and Truffle",
+            "description": "Filet mignon, charred onion purée with truffle and Grana Padano, breaded mushrooms, fermented cauliflower",
+            "price": "224"
           },
           {
-            "name": "Fish and Chips with Fries and Coleslaw",
-            "description": "Fish fillet (200g), fries, tempura, coleslaw",
-            "price": "66"
+            "name": "Cod Loin with Saffron Risotto",
+            "description": "Pan-fried cod loin, saffron risotto with white wine and Grana Padano, panko-breaded cauliflower, fermented cauliflower, lemon, chili threads",
+            "price": "88"
           },
           {
-            "name": "Traditional Pork Cutlet with Mashed Potatoes and Salad",
-            "description": "Pork loin (250g), potatoes, butter, oil, white cabbage",
-            "price": "59"
+            "name": "House-Style Pork Cutlet",
+            "description": "Pork loin (180 g), cucumber salad with herbs and mascarpone, potato gratin with Grana Padano and caramelized onions",
+            "price": "64"
           },
           {
-            "name": "Panko Chicken Fillet with Puree and Glazed Carrots",
-            "description": "Chicken fillet (350g), mashed potatoes, glazed carrots, orange, anise",
-            "price": "59"
+            "name": "Chicken Fillet in a Herb Crust",
+            "description": "Herb-breaded chicken fillet, sweet potato and passion fruit purée, cauliflower and broccoli in a cream and wine sauce",
+            "price": "64"
           },
           {
-            "name": "Sous-Vide Duck Breast with Sea Buckthorn Sauce, Mashed Potatoes, and Honey-Glazed Red Beets",
-            "description": "Duck breast (230g), mashed potatoes, butter, sea buckthorn sauce, red beets, honey",
+            "name": "Duck Breast with Blackcurrant",
+            "description": "Sous-vide duck breast, roasted beetroot and raspberry purée, roasted pumpkin, blackcurrant and red wine sauce, blackcurrant pearls",
             "price": "79"
           }
         ]
@@ -175,34 +185,38 @@
         "category": "Pasta",
         "items": [
           {
-            "name": "Tagliatelle in Homemade Pesto with Burrata",
-            "description": "Wheat pasta, burrata, cherry tomatoes, homemade pesto, nuts",
+            "name": "Tagliatelle Cacio e Pepe with Beef",
+            "description": "Wheat pasta, sous-vide beef, Grana Padano, butter, freshly ground pepper, egg yolk",
             "price": "58"
           },
           {
-            "name": "Bolognese with Grana Padano Cheese",
+            "name": "Bolognese with Grana Padano",
             "description": "Wheat pasta, tomatoes, beef, garlic, Grana Padano",
-            "price": "52"
+            "price": "56"
+          },
+          {
+            "name": "Tagliatelle with Shrimp and ’Nduja",
+            "description": "Wheat pasta, shrimp, pork ’nduja, white wine, butter, garlic, chili, cherry tomatoes, lemon, parsley",
+            "price": "69"
           }
         ]
       },
       {
         "category": "Steaks",
-        "note": "All steaks are served with roasted potatoes and herb butter.",
         "items": [
           {
             "name": "Tomahawk (approx. 1.2 kg)",
-            "description": "Price per 100g",
-            "price": "39"
+            "description": "Price per 100 g",
+            "price": "42"
           },
           {
             "name": "Porterhouse (approx. 0.9 kg)",
-            "description": "Price per 100g",
-            "price": "38"
+            "description": "Price per 100 g",
+            "price": "48"
           },
           {
             "name": "T-Bone (approx. 0.6 kg)",
-            "description": "Price per 100g",
+            "description": "Price per 100 g",
             "price": "47"
           },
           {
@@ -212,54 +226,49 @@
           },
           {
             "name": "Ribeye (300 g)",
-            "description": "",
+            "description": "Black Angus ribeye",
             "price": "159"
           },
           {
             "name": "New York Strip (300 g)",
-            "description": "",
+            "description": "Black Angus strip loin",
             "price": "159"
           },
           {
-            "name": "Chateaubriand for 2 (600 g)",
-            "description": "",
+            "name": "Chateaubriand for Two (600 g)",
+            "description": "Beef tenderloin",
             "price": "419"
-          },
-          {
-            "name": "Argentinian Sirloin (300 g)",
-            "description": "",
-            "price": "179"
           }
         ],
-        "addonsTitle": "Add-ons",
+        "addonsTitle": "Steak Sides and Sauces",
         "addons": [
           {
-            "name": "Sweet potato fries 200 g",
+            "name": "Herb-Roasted Potatoes",
+            "price": "16"
+          },
+          {
+            "name": "Sweet Potato Fries (180 g)",
             "price": "26"
           },
           {
-            "name": "Grilled vegetables",
+            "name": "Grilled Vegetables",
             "price": "26"
           },
           {
-            "name": "Coleslaw salad",
+            "name": "Potato Gratin with Grana Padano and Caramelized Onions",
+            "price": "26"
+          },
+          {
+            "name": "Demi-Glace Sauce",
             "price": "12"
           },
           {
-            "name": "Demiglace sauce",
+            "name": "Peppercorn Sauce",
             "price": "12"
           },
           {
-            "name": "Peppercorn sauce",
+            "name": "Chimichurri Sauce",
             "price": "12"
-          },
-          {
-            "name": "Chimichurri sauce",
-            "price": "12"
-          },
-          {
-            "name": "Aioli sauce",
-            "price": "8"
           }
         ]
       },
@@ -268,34 +277,34 @@
         "items": [
           {
             "name": "N°1 Classic Burger",
-            "description": "Beef 180g, wheat bun, pickles, lettuce, tomato, onion, aioli sauce",
+            "description": "Beef (180 g), wheat bun, pickles, lettuce, tomato, onion, aioli",
             "price": "54"
           },
           {
             "name": "N°2 Royal Burger",
-            "description": "Beef 180g, wheat bun, bacon, shrimp 3 pcs., mango-chili chutney, arugula",
+            "description": "Beef (180 g), wheat bun, bacon, shrimp (3 pcs.), mango-chili chutney, arugula",
             "price": "69"
           },
           {
-            "name": "N°3 Cheeseburger",
-            "description": "Beef 180g, wheat bun, gorgonzola cheese, cheddar sauce, lettuce, onion jam, aioli sauce",
+            "name": "N°3 Butcher’s Burger",
+            "description": "Beef (180 g), wheat bun, breaded Camembert, homemade jam, lettuce, house sauce, crispy onions",
             "price": "69"
           },
           {
             "name": "N°4 Texas Burger",
-            "description": "Beef 180g, wheat bun, bacon, mimolette cheese, pickles, lettuce, tomato, pepper salsa, onion, chipotle aioli",
+            "description": "Beef (180 g), wheat bun, bacon, Mimolette cheese, pickles, lettuce, tomato, bell pepper salsa, onion, chipotle aioli",
             "price": "59"
           }
         ],
-        "addonsTitle": "Add-ons",
+        "addonsTitle": "Burger Sides",
         "addons": [
           {
-            "name": "Burger fries with ketchup (150 g)",
+            "name": "Fries with Ketchup (150 g)",
             "price": "16"
           },
           {
-            "name": "Sweet potato fries (200 g)",
-            "price": "26"
+            "name": "Fries with Aioli (150 g)",
+            "price": "16"
           }
         ]
       },
@@ -308,9 +317,14 @@
             "price": "32"
           },
           {
-            "name": "Chocolate Fondant with Raspberry Ice Cream",
-            "description": "Milk, eggs, chocolate, butter, raspberry ice cream",
+            "name": "Chocolate Fondant with Raspberry Sorbet",
+            "description": "Milk, eggs, chocolate, butter, raspberry sorbet",
             "price": "38"
+          },
+          {
+            "name": "Lemon Cheesecake",
+            "description": "Milk, eggs",
+            "price": "28"
           }
         ]
       }

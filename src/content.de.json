@@ -105,38 +105,48 @@
         "category": "Vorspeisen",
         "items": [
           {
-            "name": "Rinderfilet-Tartar",
-            "description": "Filet (160 g), Eigelb, Pickles, Anchovis, Dijon-Senf, eingelegte Pilze, Liebstöckelmayonnaise, Brot",
+            "name": "Tatar vom Rinderfilet",
+            "description": "Rinderfilet (80 g), Eigelb, Gewürzgurken, Sardellen, Dijon-Senf, eingelegte Pilze, Liebstöckelmayonnaise, Brot",
             "price": "60"
           },
           {
-            "name": "Butcher Wings",
+            "name": "Flambierte Vannamei-Garnelen mit Mango und Sambuca",
+            "description": "Mango, Chili, Estragon, Anis, Knoblauch, Honig, Sambuca, Butter",
+            "price": "69"
+          },
+          {
+            "name": "Butcher-Hähnchenflügel (8 Stück)",
             "description": "Hähnchenfleisch, Louisiana-Tabasco-Sauce, Honig, Sojasauce, Sesam, Schnittlauch",
             "price": "49"
           },
           {
-            "name": "Rinderfilet-Carpaccio",
+            "name": "Carpaccio vom Rinderfilet",
             "description": "Rinderfilet (80 g), Olivenöl, Kapern, Rucola, Kirschtomaten, Grana Padano, Brot",
+            "price": "58"
+          },
+          {
+            "name": "Klassischer Caesar-Salat mit Hähnchen",
+            "description": "Hähnchen, Kapern, Kirschtomaten, Ei, Speck, Grana Padano, Caesar-Dressing, Sardellen, Römersalat, Croûtons",
             "price": "56"
           },
           {
-            "name": "Hähnchen-Caesar-Salat",
-            "description": "Hähnchen (100 g), Kapern, Kirschtomaten, Ei, Speck, Grana Padano, Caesar-Dressing, Römersalat, Croutions",
-            "price": "56"
+            "name": "Klassischer Caesar-Salat mit Garnelen",
+            "description": "Garnelen, Kapern, Kirschtomaten, Ei, Speck, Grana Padano, Caesar-Dressing, Sardellen, Römersalat, Croûtons",
+            "price": "68"
           },
           {
-            "name": "Antipasti Misto",
-            "description": "Auswahl an italienischem Käse und Aufschnitt",
-            "price": "119"
+            "name": "Butcher-Herbstsalat",
+            "description": "Sous-vide gegartes Rindfleisch, Ofenkürbis, saisonales Obst, Gorgonzola, Kürbiskerne, gemischte Blattsalate, Cranberry-Himbeer-Vinaigrette mit Anis, Brot",
+            "price": "64"
           },
           {
-            "name": "Thailändische Suppe",
-            "description": "Fischmix, Meeresfrüchtemix, Reis, Kokosmilch, Koriander, Limette, Gewürze, Tom-Yum-Nudeln",
-            "price": "42"
+            "name": "Waldpilzsuppe",
+            "description": "Steinpilze, Pfifferlinge, Maronenröhrlinge, Gemüse, Kartoffelpüree, Sahne, Grünkohl- und Petersilienchips, grünes Olivenöl",
+            "price": "38"
           },
           {
-            "name": "Brühe von gebratenem Fleisch",
-            "description": "Rindfleisch, Geflügelfleisch, Gemüse, Gewürze, Weizennudeln",
+            "name": "Brühe aus geröstetem Fleisch mit hausgemachten Nudeln",
+            "description": "Rindfleisch, Geflügel, Gemüse, Gewürze, Weizennudeln",
             "price": "32"
           }
         ]
@@ -145,28 +155,28 @@
         "category": "Hauptgerichte",
         "items": [
           {
-            "name": "Gebackene Goldbrasse mit Ofenkartoffeln und Coleslaw",
-            "description": "Ganze Dorade (300 g), Kartoffeln, Coleslaw",
-            "price": "89"
+            "name": "Filet Mignon mit panierten Pilzen und Trüffel",
+            "description": "Filet Mignon, Püree aus gerösteten Zwiebeln mit Trüffel und Grana Padano, panierte Pilze, fermentierter Blumenkohl",
+            "price": "224"
           },
           {
-            "name": "Fish and Chips mit Pommes frites und Coleslaw",
-            "description": "Fischfilet (200 g), Pommes frites, Tempura, Coleslaw",
-            "price": "66"
+            "name": "Kabeljaufilet auf Safranrisotto",
+            "description": "Gebratenes Kabeljaufilet, Safranrisotto mit Weißwein und Grana Padano, Blumenkohl in Pankopanade, fermentierter Blumenkohl, Zitrone, Chilifäden",
+            "price": "88"
           },
           {
-            "name": "Traditionelles Schweineschnitzel mit Kartoffelpüree und Salat",
-            "description": "Schweinelachs (250 g), Kartoffeln, Butter, Öl, Weißkohl",
-            "price": "59"
+            "name": "Schweineschnitzel nach Art des Hauses",
+            "description": "Schweinerücken (180 g), Gurkensalat mit Kräutern und Mascarpone, Kartoffelgratin mit Grana Padano und karamellisierten Zwiebeln",
+            "price": "64"
           },
           {
-            "name": "Panko-Hähnchenfilet mit Püree und glasierten Karotten",
-            "description": "Hähnchenfilet (350 g), Kartoffelpüree, glasierte Karotten, Orange, Anis",
-            "price": "59"
+            "name": "Hähnchenfilet in Kräuterpanade",
+            "description": "Hähnchenfilet in Kräuterpanade, Süßkartoffel-Maracuja-Püree, Blumenkohl und Brokkoli in einer Wein-Sahne-Sauce",
+            "price": "64"
           },
           {
-            "name": "Sous-vide Entenbrust mit Sanddornsauce, Kartoffelpüree und Honig-Rote-Bete",
-            "description": "Entenbrust (230 g), Kartoffelpüree, Butter, Sanddornsauce, Rote Beete, Honig",
+            "name": "Entenbrust mit schwarzer Johannisbeere",
+            "description": "Sous-vide gegarte Entenbrust, Püree aus gerösteter Roter Bete und Himbeeren, Ofenkürbis, Sauce aus schwarzen Johannisbeeren und Rotwein, Johannisbeerperlen",
             "price": "79"
           }
         ]
@@ -175,30 +185,34 @@
         "category": "Pasta",
         "items": [
           {
-            "name": "Tagliatelle in hausgemachtem Pesto mit Burrata",
-            "description": "Weizennudeln, Burrata, Kirschtomaten, hausgemachtes Pesto, Nüsse",
+            "name": "Tagliatelle Cacio e Pepe mit Rindfleisch",
+            "description": "Weizennudeln, sous-vide gegartes Rindfleisch, Grana Padano, Butter, frisch gemahlener Pfeffer, Eigelb",
             "price": "58"
           },
           {
             "name": "Bolognese mit Grana Padano",
             "description": "Weizennudeln, Tomaten, Rindfleisch, Knoblauch, Grana Padano",
-            "price": "52"
+            "price": "56"
+          },
+          {
+            "name": "Tagliatelle mit Garnelen und ’Nduja",
+            "description": "Weizennudeln, Garnelen, ’Nduja vom Schwein, Weißwein, Butter, Knoblauch, Chili, Kirschtomaten, Zitrone, Petersilie",
+            "price": "69"
           }
         ]
       },
       {
         "category": "Steaks",
-        "note": "Alle Steaks werden mit Ofenkartoffeln und Kräuterbutter serviert.",
         "items": [
           {
             "name": "Tomahawk (ca. 1,2 kg)",
             "description": "Preis pro 100 g",
-            "price": "39"
+            "price": "42"
           },
           {
             "name": "Porterhouse (ca. 0,9 kg)",
             "description": "Preis pro 100 g",
-            "price": "38"
+            "price": "48"
           },
           {
             "name": "T-Bone (ca. 0,6 kg)",
@@ -206,35 +220,34 @@
             "price": "47"
           },
           {
-            "name": "Rinderfilet-Steak (200 g)",
+            "name": "Rinderfiletsteak (200 g)",
             "description": "",
             "price": "149"
           },
           {
             "name": "Ribeye (300 g)",
-            "description": "",
+            "description": "Black-Angus-Entrecôte",
             "price": "159"
           },
           {
             "name": "New York Strip (300 g)",
-            "description": "",
+            "description": "Black-Angus-Roastbeef",
             "price": "159"
           },
           {
-            "name": "Chateaubriand für 2 (600 g)",
-            "description": "",
+            "name": "Chateaubriand für zwei (600 g)",
+            "description": "Rinderfilet",
             "price": "419"
-          },
-          {
-            "name": "Argentinisches Roastbeef (300 g)",
-            "description": "",
-            "price": "179"
           }
         ],
-        "addonsTitle": "Beilagen & Saucen",
+        "addonsTitle": "Beilagen und Saucen zu Steaks",
         "addons": [
           {
-            "name": "Süßkartoffelpommes 200 g",
+            "name": "Ofenkartoffeln mit Kräutern",
+            "price": "16"
+          },
+          {
+            "name": "Süßkartoffelpommes (180 g)",
             "price": "26"
           },
           {
@@ -242,24 +255,20 @@
             "price": "26"
           },
           {
-            "name": "Coleslaw-Salat",
+            "name": "Kartoffelgratin mit Grana Padano und karamellisierten Zwiebeln",
+            "price": "26"
+          },
+          {
+            "name": "Demi-Glace",
             "price": "12"
           },
           {
-            "name": "Demiglace-Sauce",
-            "price": "12"
-          },
-          {
-            "name": "Pfferkornsauce",
+            "name": "Pfeffersauce",
             "price": "12"
           },
           {
             "name": "Chimichurri-Sauce",
             "price": "12"
-          },
-          {
-            "name": "Aioli-Sauce",
-            "price": "8"
           }
         ]
       },
@@ -268,34 +277,34 @@
         "items": [
           {
             "name": "N°1 Classic Burger",
-            "description": "Rindfleisch 180 g, Weizenbrötchen, Pickles, Salat, Tomate, Zwiebel, Aioli-Sauce",
+            "description": "Rindfleisch (180 g), Weizenbrötchen, Gewürzgurken, Salat, Tomate, Zwiebel, Aioli",
             "price": "54"
           },
           {
             "name": "N°2 Royal Burger",
-            "description": "Rindfleisch 180 g, Weizenbrötchen, Speck, Garnelen 3 Stk., Mango-Chili-Chutney, Rucola",
+            "description": "Rindfleisch (180 g), Weizenbrötchen, Speck, Garnelen (3 Stück), Mango-Chili-Chutney, Rucola",
             "price": "69"
           },
           {
-            "name": "N°3 Cheeseburger",
-            "description": "Rindfleisch 180 g, Weizenbrötchen, Gorgonzola, Cheddarsauce, Salat, Zwiebelkonfitüre, Aioli-Sauce",
+            "name": "N°3 Butcher’s Burger",
+            "description": "Rindfleisch (180 g), Weizenbrötchen, panierter Camembert, hausgemachte Konfitüre, Salat, Haussauce, Röstzwiebeln",
             "price": "69"
           },
           {
             "name": "N°4 Texas Burger",
-            "description": "Rindfleisch 180 g, Weizenbrötchen, Speck, Mimolette, Pickles, Salat, Tomate, Paprikasalsa, Zwiebel, Chipotle-Aioli",
+            "description": "Rindfleisch (180 g), Weizenbrötchen, Speck, Mimolette, Gewürzgurken, Salat, Tomate, Paprikasalsa, Zwiebel, Chipotle-Aioli",
             "price": "59"
           }
         ],
-        "addonsTitle": "Beilagen",
+        "addonsTitle": "Beilagen zu Burgern",
         "addons": [
           {
-            "name": "Burger-Pommes mit Ketchup (150 g)",
+            "name": "Pommes frites mit Ketchup (150 g)",
             "price": "16"
           },
           {
-            "name": "Süßkartoffelpommes (200 g)",
-            "price": "26"
+            "name": "Pommes frites mit Aioli (150 g)",
+            "price": "16"
           }
         ]
       },
@@ -303,14 +312,19 @@
         "category": "Desserts",
         "items": [
           {
-            "name": "Crème Brûlée",
+            "name": "Crème brûlée",
             "description": "Milch, Eier, Vanille",
             "price": "32"
           },
           {
-            "name": "Schokoladenfondant mit Himbeereis",
-            "description": "Milch, Eier, Schokolade, Butter, Himbeereis",
+            "name": "Schokoladenfondant mit Himbeersorbet",
+            "description": "Milch, Eier, Schokolade, Butter, Himbeersorbet",
             "price": "38"
+          },
+          {
+            "name": "Zitronenkäsekuchen",
+            "description": "Milch, Eier",
+            "price": "28"
           }
         ]
       }

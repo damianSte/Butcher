@@ -106,36 +106,46 @@
         "items": [
           {
             "name": "Tatar z polędwicy wołowej",
-            "description": "Polędwica (160g), żółtko, pikle, anchois, musztarda Dijon, grzyby z octu, majonez lubczykowy, pieczywo",
+            "description": "Polędwica wołowa (80 g), żółtko, pikle, anchois, musztarda Dijon, grzyby z octu, majonez lubczykowy, pieczywo",
             "price": "60"
           },
           {
-            "name": "Skrzydełka Butcher",
-            "description": "Mięso z kurczaka, sos Luisiana-Tabasco, miód, sos sojowy, sezam, szczypiorek",
+            "name": "Płonące krewetki vannamei z mango i sambucą",
+            "description": "Mango, chili, estragon, anyż, czosnek, miód, sambuca, masło",
+            "price": "69"
+          },
+          {
+            "name": "Skrzydełka Butcher (8 szt.)",
+            "description": "Mięso z kurczaka, sos Louisiana-Tabasco, miód, sos sojowy, sezam, szczypiorek",
             "price": "49"
           },
           {
             "name": "Carpaccio z polędwicy wołowej",
-            "description": "Polędwica wołowa (80g), oliwa, kapary, rukola, pomidory koktajlowe, ser Grana Padano, pieczywo",
+            "description": "Polędwica wołowa (80 g), oliwa, kapary, rukola, pomidorki koktajlowe, Grana Padano, pieczywo",
+            "price": "58"
+          },
+          {
+            "name": "Cezar klasyczny z kurczakiem",
+            "description": "Kurczak, kapary, pomidory cherry, jajko, boczek, Grana Padano, sos Cezar, anchois, sałata rzymska, grzanki",
             "price": "56"
           },
           {
-            "name": "Sałatka Cezar z Kurczakiem",
-            "description": "Kurczak (100g), kapary, pomidory cherry, jajko, boczek, ser Grana Padano, sos cezar, sałata rzymska, grzanki",
-            "price": "56"
+            "name": "Cezar klasyczny z krewetkami",
+            "description": "Krewetki, kapary, pomidory cherry, jajko, boczek, Grana Padano, sos Cezar, anchois, sałata rzymska, grzanki",
+            "price": "68"
           },
           {
-            "name": "Antipasti Misto",
-            "description": "Zestaw włoskich serów i wędlin",
-            "price": "119"
+            "name": "Sałata Jesienny Butcher",
+            "description": "Wołowina sous-vide, pieczona dynia, owoce sezonowe, gorgonzola, pestki dyni, mix sałat, vinaigrette żurawinowo-malinowy z anyżem, pieczywo",
+            "price": "64"
           },
           {
-            "name": "Zupa Tajska",
-            "description": "Mix ryb, mix owoców morza, ryż, mleko kokosowe, kolendra, limonka, przyprawy, makaron tom yum",
-            "price": "42"
+            "name": "Zupa grzybowa",
+            "description": "Borowiki, kurki, podgrzybki, warzywa, purée ziemniaczane, śmietana, chipsy z jarmużu i zielonej pietruszki, zielona oliwa",
+            "price": "38"
           },
           {
-            "name": "Rosół z Pieczonych Mięs",
+            "name": "Rosół z pieczonych mięs z domowym makaronem",
             "description": "Mięso wołowe, mięso drobiowe, warzywa, przyprawy, makaron pszenny",
             "price": "32"
           }
@@ -145,28 +155,28 @@
         "category": "Dania Główne",
         "items": [
           {
-            "name": "Dorada z pieca z pieczonymi ziemniakami i colesławem",
-            "description": "Tusza dorady (300 g), ziemniaki, colesław",
-            "price": "89"
+            "name": "Filet mignon z panierowanymi grzybami i truflą",
+            "description": "Filet mignon, purée z palonej cebuli z truflą i Grana Padano, panierowane grzyby, kiszony kalafior",
+            "price": "224"
           },
           {
-            "name": "Fish and chips z frytkami i colesławem",
-            "description": "Filet z ryby (200 g), frytki, tempura, colesław",
-            "price": "66"
+            "name": "Polędwica z dorsza w szafranowym risotto",
+            "description": "Smażona polędwica z dorsza, risotto szafranowe z białym winem i Grana Padano, kalafior w panko, kiszony kalafior, cytryna, nitki chili",
+            "price": "88"
           },
           {
-            "name": "Tradycyjny kotlet schabowy z puree ziemniaczanym i surówką",
-            "description": "Schab wieprzowy (250 g), ziemniaki, masło, olej, kapusta biała",
-            "price": "59"
+            "name": "Kotlet schabowy po naszemu",
+            "description": "Schab wieprzowy (180 g), mizeria z ogórków z ziołami i mascarpone, zapiekanka ziemniaczana z Grana Padano i karmelizowaną cebulą",
+            "price": "64"
           },
           {
-            "name": "Filet z kurczaka w panko z puree i glazurowaną marchewką",
-            "description": "Filet z kurczaka (350 g), puree ziemniaczane, marchew glazurowana, pomarańcza, anyż",
-            "price": "59"
+            "name": "Filet z kurczaka w ziołowej panierce",
+            "description": "Filet z kurczaka w ziołowej panierce, purée z batatów i marakui, kalafior i brokuły w sosie śmietanowo-winnym",
+            "price": "64"
           },
           {
-            "name": "Pierś z kaczki sous vide z sosem z rokitnika, z puree ziemniaczanym oraz czerwonymi burakami w miodzie",
-            "description": "Pierś z kaczki (230 g), puree ziemniaczane, masło, sos z rokitnika, czerwony burak, miód",
+            "name": "Pierś z kaczki z czarną porzeczką",
+            "description": "Pierś z kaczki sous-vide, purée z pieczonego buraka i malin, pieczona dynia, sos z czarnej porzeczki i czerwonego wina, kawior porzeczkowy",
             "price": "79"
           }
         ]
@@ -175,30 +185,34 @@
         "category": "Makarony",
         "items": [
           {
-            "name": "Tagliatelle w domowym pesto i burrata",
-            "description": "Makaron pszenny, burrata, pomidorki koktajlowe, domowe pesto, orzechy",
+            "name": "Tagliatelle Cacio e Pepe z wołowiną",
+            "description": "Makaron pszenny, wołowina sous-vide, Grana Padano, masło, świeżo mielony pieprz, żółtko",
             "price": "58"
           },
           {
             "name": "Bolognese z serem Grana Padano",
             "description": "Makaron pszenny, pomidory, mięso wołowe, czosnek, Grana Padano",
-            "price": "52"
+            "price": "56"
+          },
+          {
+            "name": "Tagliatelle z krewetkami i ’ndują",
+            "description": "Makaron pszenny, krewetki, wieprzowa ’nduja, białe wino, masło, czosnek, chili, pomidory cherry, cytryna, natka pietruszki",
+            "price": "69"
           }
         ]
       },
       {
         "category": "Steki",
-        "note": "Wszystkie steki są w zestawie z pieczonymi ziemniakami oraz masłem ziołowym.",
         "items": [
           {
             "name": "Tomahawk (ok. 1,2 kg)",
             "description": "Cena za 100 g",
-            "price": "39"
+            "price": "42"
           },
           {
             "name": "Porterhouse (ok. 0,9 kg)",
             "description": "Cena za 100 g",
-            "price": "38"
+            "price": "48"
           },
           {
             "name": "T-Bone (ok. 0,6 kg)",
@@ -212,29 +226,28 @@
           },
           {
             "name": "Ribeye (300 g)",
-            "description": "",
+            "description": "Antrykot Black Angus",
             "price": "159"
           },
           {
             "name": "New York Strip (300 g)",
-            "description": "",
+            "description": "Rostbef Black Angus",
             "price": "159"
           },
           {
-            "name": "Chateaubriand for 2 (600 g)",
-            "description": "",
+            "name": "Chateaubriand dla dwojga (600 g)",
+            "description": "Polędwica wołowa",
             "price": "419"
-          },
-          {
-            "name": "Rostbef argentyński (300 g)",
-            "description": "",
-            "price": "179"
           }
         ],
-        "addonsTitle": "Dodatki",
+        "addonsTitle": "Dodatki do steków",
         "addons": [
           {
-            "name": "Frytki z batata 200 g",
+            "name": "Pieczone ziemniaki z ziołami",
+            "price": "16"
+          },
+          {
+            "name": "Frytki z batatów (180 g)",
             "price": "26"
           },
           {
@@ -242,11 +255,11 @@
             "price": "26"
           },
           {
-            "name": "Sałatka colesław",
-            "price": "12"
+            "name": "Zapiekanka ziemniaczana z Grana Padano i karmelizowaną cebulą",
+            "price": "26"
           },
           {
-            "name": "Sos demiglace",
+            "name": "Sos demi-glace",
             "price": "12"
           },
           {
@@ -256,10 +269,6 @@
           {
             "name": "Sos chimichurri",
             "price": "12"
-          },
-          {
-            "name": "Sos aioli",
-            "price": "8"
           }
         ]
       },
@@ -268,34 +277,34 @@
         "items": [
           {
             "name": "N°1 Classic burger",
-            "description": "Wołowina 180 g, bułka pszenna, pikle, sałata, pomidor, cebula, sos aioli",
+            "description": "Wołowina (180 g), bułka pszenna, pikle, sałata, pomidor, cebula, sos aioli",
             "price": "54"
           },
           {
             "name": "N°2 Royal burger",
-            "description": "Wołowina 180 g, bułka pszenna, boczek, krewetki 3 szt., chutney mango-chilli, rukola",
+            "description": "Wołowina (180 g), bułka pszenna, boczek, krewetki (3 szt.), chutney mango-chili, rukola",
             "price": "69"
           },
           {
-            "name": "N°3 Cheeseburger",
-            "description": "Wołowina 180 g, bułka pszenna, ser gorgonzola, sos cheddar, sałata, konfitura z cebuli, sos aioli",
+            "name": "N°3 Butcher’s burger",
+            "description": "Wołowina (180 g), bułka pszenna, panierowany camembert, domowa konfitura, sałata, sos własny, prażona cebula",
             "price": "69"
           },
           {
             "name": "N°4 Texas burger",
-            "description": "Wołowina 180 g, bułka pszenna, boczek, ser mimolette, pikle, sałata, pomidor, salsa z papryki, cebula, aioli chipotle",
+            "description": "Wołowina (180 g), bułka pszenna, boczek, ser mimolette, pikle, sałata, pomidor, salsa z papryki, cebula, aioli chipotle",
             "price": "59"
           }
         ],
-        "addonsTitle": "Dodatki",
+        "addonsTitle": "Dodatki do burgerów",
         "addons": [
           {
             "name": "Frytki do burgera z ketchupem (150 g)",
             "price": "16"
           },
           {
-            "name": "Frytki z batata (200 g)",
-            "price": "26"
+            "name": "Frytki do burgera z aioli (150 g)",
+            "price": "16"
           }
         ]
       },
@@ -303,14 +312,19 @@
         "category": "Desery",
         "items": [
           {
-            "name": "Creme Brûlée",
+            "name": "Crème brûlée",
             "description": "Mleko, jaja, wanilia",
             "price": "32"
           },
           {
-            "name": "Fondant Czekoladowy z Lodami Malinowymi",
-            "description": "Mleko, jaja, czekolada, masło, lody malinowe",
+            "name": "Fondant czekoladowy z sorbetem malinowym",
+            "description": "Mleko, jaja, czekolada, masło, sorbet malinowy",
             "price": "38"
+          },
+          {
+            "name": "Sernik cytrynowy",
+            "description": "Mleko, jaja",
+            "price": "28"
           }
         ]
       }
